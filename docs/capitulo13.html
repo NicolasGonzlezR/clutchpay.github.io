@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 13: Módulos de Front para Pagos - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 13: Módulos de Front para Pagos</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="capitulo13.html" class="active">Capítulo 13</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 13: Módulos de Front para Pagos</h1>
+            </div>
+
+            <div class="video-embed">
+                <iframe
+                    src="https://drive.google.com/file/d/1qky9tmaBxlbVod3NX29vL4LKCKkYpOmf/preview"
+                    title="Video tutorial - Capítulo 13"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="content-section">
+                <h2>📖 Contenido Completo</h2>
+                <div class="markdown-body">
+                    <h1>Implementación de Gestión de Pagos con Stripe</h1>
+                    <p>En este tutorial se describe el proceso para implementar la funcionalidad completa de gestión de pagos (payments) en el proyecto, utilizando Stripe como pasarela de pago desde el frontend. Se incluyen la creación de sesiones de checkout, la consulta del estado de los pagos, el listado de pagos del usuario y la obtención del detalle de un pago.</p>
+                    
+                    <h2>1. Estructura de archivos de pagos</h2>
+                    <ul>
+                        <li><strong>public/JS/payments.js</strong>: módulo principal para la gestión de pagos en la aplicación.</li>
+                        <li><strong>public/JS/dashboard/payments.js</strong>: módulo de gestión de pagos utilizado dentro del dashboard del usuario.</li>
+                    </ul>
+                    
+                    <h2>2. public/JS/payments.js</h2>
+                    <p>Este archivo define la clase <code>PaymentManager</code>, encargada de manejar todo el flujo de pagos con Stripe desde el frontend.</p>
+                    
+                    <h3>Responsabilidades</h3>
+                    <ul>
+                        <li>Crear sesiones de Stripe Checkout para facturas.</li>
+                        <li>Consultar el estado de sesiones de pago.</li>
+                        <li>Listar los pagos asociados al usuario autenticado.</li>
+                        <li>Obtener el detalle de un pago específico.</li>
+                        <li>Centralizar el manejo de errores HTTP.</li>
+                    </ul>
+                    
+                    <h3>Dependencias</h3>
+                    <ul>
+                        <li><strong>Auth</strong>: instancia utilizada para obtener la variable <code>API_BASE_URL</code>.</li>
+                        <li><strong>Fetch API</strong>: utilizada para comunicarse con el backend.</li>
+                        <li><strong>Cookies de sesión</strong>: enviadas mediante <code>credentials: 'include'</code>.</li>
+                    </ul>
+                    
+                    <h2>3. Clase PaymentManager</h2>
+                    <p>La clase <code>PaymentManager</code> actúa como intermediaria entre la interfaz de usuario y la API de pagos.</p>
+                    
+                    <h3>Constructor</h3>
+                    <ul>
+                        <li>Recibe una instancia de <code>Auth</code>.</li>
+                        <li>Inicializa la URL base de la API (<code>API_BASE_URL</code>).</li>
+                    </ul>
+                    
+                    <h3>Métodos</h3>
+                    <ul>
+                        <li><strong>createCheckoutSession(invoiceId, options)</strong><br>
+                            Crea una sesión de Stripe Checkout para iniciar un pago.
+                            <ul>
+                                <li>Genera automáticamente las URLs de éxito y cancelación.</li>
+                                <li>Envía el ID de la factura al backend.</li>
+                                <li>Retorna el ID de la sesión y la URL de pago.</li>
+                            </ul>
+                        </li>
+                        <li><strong>getSessionStatus(sessionId)</strong><br>
+                            Consulta el estado de una sesión de Stripe.
+                            <ul>
+                                <li>Valida el formato del ID de sesión (<code>cs_</code>).</li>
+                                <li>Retorna estado, monto, moneda y factura asociada.</li>
+                            </ul>
+                        </li>
+                        <li><strong>listPayments(options)</strong><br>
+                            Lista los pagos del usuario autenticado.
+                            <ul>
+                                <li>Permite filtrar por rol (<code>payer</code> o <code>receiver</code>).</li>
+                                <li>Soporta filtros por método de pago.</li>
+                                <li>Incluye paginación y ordenamiento.</li>
+                            </ul>
+                        </li>
+                        <li><strong>getPaymentDetail(paymentId)</strong><br>
+                            Obtiene el detalle completo de un pago específico.
+                        </li>
+                    </ul>
+                    
+                    <h2>4. Endpoints consumidos</h2>
+                    <p>La clase <code>PaymentManager</code> consume los siguientes endpoints del backend:</p>
+                    
+                    <h3>Stripe</h3>
+                    <ul>
+                        <li><strong>POST /api/payments/stripe/checkout</strong><br>
+                            Crea una sesión de Stripe Checkout.
+                            <ul><li>Body: <code>invoiceId</code>, <code>successUrl</code>, <code>cancelUrl</code></li></ul>
+                        </li>
+                        <li><strong>GET /api/payments/stripe/session/:sessionId</strong><br>
+                            Obtiene el estado de una sesión de pago.
+                        </li>
+                    </ul>
+                    
+                    <h3>Pagos</h3>
+                    <ul>
+                        <li><strong>GET /api/payments</strong><br>
+                            Lista los pagos del usuario.
+                            <ul><li>Parámetros: <code>role</code>, <code>paymentMethod</code>, <code>page</code>, <code>limit</code>, <code>sortBy</code>, <code>sortOrder</code></li></ul>
+                        </li>
+                        <li><strong>GET /api/payments/:id</strong><br>
+                            Obtiene el detalle de un pago específico.
+                        </li>
+                    </ul>
+                    
+                    <h2>5. Manejo de errores</h2>
+                    <p>El manejo de errores se centraliza en el método <code>getErrorMessage</code>.</p>
+                    
+                    <h3>Códigos soportados</h3>
+                    <ul>
+                        <li><strong>400</strong>: datos inválidos.</li>
+                        <li><strong>401</strong>: usuario no autenticado.</li>
+                        <li><strong>403</strong>: permisos insuficientes.</li>
+                        <li><strong>404</strong>: recurso no encontrado.</li>
+                        <li><strong>409</strong>: la factura ya ha sido pagada.</li>
+                        <li><strong>500</strong>: error interno del servidor.</li>
+                    </ul>
+                    <p>Cada error HTTP se transforma en un mensaje legible para la interfaz de usuario.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="capitulo12.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 12: Conexión PayPal</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="capitulo14.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 14: Frontend de Pagos</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>

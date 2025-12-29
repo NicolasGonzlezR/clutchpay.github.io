@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 3: API REST y Login - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 3: API REST y Login</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="capitulo3.html" class="active">Capítulo 3</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 3: API REST y Login</h1>
+            </div>
+
+            <div class="video-embed">
+                <iframe
+                    src="https://drive.google.com/file/d/1BTh_bb3FTOXluSeu1g4q2U1_BQKS57rX/preview"
+                    title="Video tutorial - Capítulo 3"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="content-section">
+                <h2>📖 Contenido Completo</h2>
+                <div class="markdown-body">
+                    <h1>Configuración de Autenticación y Base de Datos en ClutchPay</h1>
+                    <p>En este tutorial se guiará paso a paso para configurar todo el sistema de autenticación y la conexión a la base de datos de ClutchPay.</p>
+                    
+                    <ol>
+                        <li>
+                            <strong>Instalación de dependencias</strong><br>
+                            Comenzaremos instalando varias librerías esenciales:
+                            <ul>
+                                <li>NextAuth para manejar la autenticación.</li>
+                                <li>Una librería de cifrado para proteger las contraseñas.</li>
+                                <li>Zod junto a una librería de validación de teléfonos para asegurarnos de que los datos del usuario siempre sean correctos.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Creación del cliente de Prisma</strong><br>
+                            Después configuraremos el cliente de Prisma. Se exportará este cliente para usarlo desde cualquier parte de la aplicación sin problemas.
+                        </li>
+                        <li>
+                            <strong>Validaciones de datos con Zod</strong><br>
+                            Antes de permitir que los usuarios se registren, es fundamental validar toda la información que envían. En esta sección veremos:
+                            <ul>
+                                <li>Cómo validar correos electrónicos.</li>
+                                <li>Cómo asegurar contraseñas fuertes siguiendo varios criterios.</li>
+                                <li>Cómo corregir, formatear y validar números de teléfono internacionales.</li>
+                                <li>Y cómo preparar un validador completo para un usuario nuevo.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Configuración de NextAuth</strong><br>
+                            A continuación configuraremos el sistema de autenticación.
+                            <ul>
+                                <li>Se explicará cómo funciona el proveedor de credenciales, que permite iniciar sesión usando email y contraseña.</li>
+                                <li>Cómo se verifica la existencia de un usuario.</li>
+                                <li>Cómo se comprueba su contraseña comparando el hash almacenado.</li>
+                                <li>Cómo se agregan datos personalizados dentro del token JWT.</li>
+                                <li>Y cómo estos datos se exponen en la sesión disponible en el cliente.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Extender los tipos de NextAuth</strong><br>
+                            En este punto veremos cómo añadir propiedades personalizadas al usuario y a la sesión, para que todo esté correctamente tipado tanto en el backend como en el frontend.
+                        </li>
+                        <li>
+                            <strong>Creación de rutas de autenticación</strong><br>
+                            Luego configuraremos las rutas de API que manejarán:
+                            <ul>
+                                <li>Todo el flujo de NextAuth (inicio de sesión, cierre de sesión, callbacks, etc).</li>
+                                <li>Un endpoint independiente para registrar nuevos usuarios.</li>
+                            </ul>
+                            Se explicará cómo funciona el proceso de registro completo:
+                            <ul>
+                                <li>Validar los datos enviados.</li>
+                                <li>Verificar si el correo ya está registrado.</li>
+                                <li>Cifrar la contraseña antes de guardarla.</li>
+                                <li>Manejar errores comunes como duplicación de usuarios.</li>
+                                <li>Responder al cliente sin exponer datos sensibles.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Variables de entorno</strong><br>
+                            Aquí prepararemos las variables esenciales para:
+                            <ul>
+                                <li>La conexión a la base de datos.</li>
+                                <li>La URL de NextAuth.</li>
+                                <li>Y la clave secreta para firmar los tokens JWT.</li>
+                            </ul>
+                            También se mostrará cómo generar un secreto seguro para producción.
+                        </li>
+                        <li>
+                            <strong>Inicialización de Prisma</strong>
+                            <ul>
+                                <li>Después se inicializará Prisma generando el cliente y creando las tablas en la base de datos.</li>
+                                <li>Además, veremos cómo abrir Prisma Studio para visualizar los datos de manera gráfica.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Pruebas básicas con registro e inicio de sesión</strong><br>
+                            Para finalizar, se probará el flujo completo:
+                            <ul>
+                                <li>Registraremos un usuario nuevo.</li>
+                                <li>Intentaremos iniciar sesión con él.</li>
+                                <li>Y verificaremos que el backend devuelve una sesión válida.</li>
+                            </ul>
+                            Con estas pruebas confirmaremos que todo está funcionando tal como se espera.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="capitulo2.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 2: Base de Datos</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="capitulo4.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 4: Frontend de Login</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>

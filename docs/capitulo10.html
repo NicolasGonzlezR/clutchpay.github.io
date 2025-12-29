@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 10: Frontend de Facturas - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 10: Frontend de Facturas</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="capitulo10.html" class="active">Capítulo 10</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 10: Frontend de Facturas</h1>
+            </div>
+
+            <div class="video-embed">
+                <iframe
+                    src="https://drive.google.com/file/d/151mDDEO7EZVTxDuPrB5VJaKwplLPzhFu/preview"
+                    title="Video tutorial - Capítulo 10"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="content-section">
+                <h2>📖 Contenido Completo</h2>
+                <div class="markdown-body">
+                    <h1>Cambios Frontend para Gestión de Facturas</h1>
+                    <p>En este tutorial se harán varios cambios a archivos previamente establecidos para poder dotar de una mayor modularidad a la aplicación y dotarla también de nuevas funciones como el modo claro o oscuro de css. Además se incorporarán los cambios para poder crear facturas.</p>
+                    
+                    <h2>1. Archivos modificados / añadidos</h2>
+                    <ul>
+                        <li><strong>public/JS/dashboard/core.js</strong>: Núcleo del dashboard. Maneja inicialización, ruteo interno entre módulos, y provee una API simple para los módulos (mostrar modales, manejar sesión, fetch helpers con <code>credentials: 'include'</code>).</li>
+                        <li><strong>public/JS/dashboard/invoices.js</strong>: Lógica de interfaz para listado, creación, edición y detalle de facturas. Consume los endpoints <code>/api/invoices</code> y <code>/api/invoices/:id</code>.</li>
+                        <li><strong>public/JS/dashboard/profile.js</strong>: Gestión del perfil de usuario en el dashboard.</li>
+                        <li><strong>public/JS/dashboard/contacts.js</strong>: Manejo de la lista de contactos y su relación con facturas (selección de deudor/emisor).</li>
+                        <li><strong>public/JS/dashboard/mobile.js</strong>: Adaptaciones y manejo de eventos para vistas móviles del dashboard.</li>
+                        <li><strong>public/JS/notifications.js</strong>: Sistema de toasts/alertas para feedback de acciones (éxito/error/aviso), usado por todos los módulos.</li>
+                        <li><strong>public/JS/theme.js</strong>: Manejador de tema (light/dark), persiste la preferencia en <code>localStorage</code> y aplica <code>data-theme</code> al <code>documentElement</code>.</li>
+                        <li><strong>public/main.html</strong> / <strong>public/index.html</strong>: Actualizados para cargar los nuevos módulos y respetar carga condicional de scripts.</li>
+                        <li><strong>public/JS/validaciones.js</strong>: Actualizaciones del cliente para validar formularios antes de enviar (coincide con zod/validaciones del servidor pero orientado a UX inmediata).</li>
+                    </ul>
+                    
+                    <h2>2-10. Descripción de Módulos</h2>
+                    <ul>
+                        <li><strong>core.js</strong>: Inicializar la aplicación, registrar módulos, proveer fetch wrapper y utilidades compartidas como paginación y conversión de archivos a base64.</li>
+                        <li><strong>invoices.js</strong>: Listados con filtros, formularios de creación/edición, conversión de PDFs a base64, vista de detalle y acciones del recurso (crear, actualizar, cancelar).</li>
+                        <li><strong>profile.js</strong>: Mostrar y editar datos del usuario, integración con avatar/imagen si aplica.</li>
+                        <li><strong>contacts.js</strong>: CRUD de contactos, búsqueda, paginación y selección de debtor/issuer para facturas.</li>
+                        <li><strong>mobile.js</strong>: Manejo de menús, colapsables y navegación simplificada para pantallas pequeñas, optimización para controles táctiles.</li>
+                        <li><strong>notifications.js</strong>: API simple para mostrar mensajes (success, error, info), control de queue de notificaciones y accesibilidad.</li>
+                        <li><strong>theme.js</strong>: Funciones getTheme() y setTheme(), persistencia en localStorage, respetar preferencia del sistema y aplicar data-theme con transiciones suaves.</li>
+                        <li><strong>validaciones.js</strong>: Reglas esenciales (required, formatos numéricos, rangos, validación de fechas), mensajes coherentes con reglas del servidor, helpers para normalizar campos.</li>
+                        <li><strong>main.html / index.html</strong>: Inclusión y orden de carga de scripts modulares, marcas para puntos de montaje de módulos, toggles de tema/menú, carga condicional en mobile.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="capitulo9.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 9: Backend de Facturas</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="capitulo11.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 11: Pagos con Stripe</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>

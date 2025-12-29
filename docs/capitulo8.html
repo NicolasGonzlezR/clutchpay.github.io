@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 8: Configuración API Cloudinary - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 8: Configuración API Cloudinary</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="capitulo8.html" class="active">Capítulo 8</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 8: Configuración API Cloudinary</h1>
+            </div>
+
+            <div class="video-embed">
+                <iframe
+                    src="https://drive.google.com/file/d/1MwWlUK_pl6q0oXbP_nZHsaJsYGOUQA-9/preview"
+                    title="Video tutorial - Capítulo 8"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="content-section">
+                <h2>📖 Contenido Completo</h2>
+                <div class="markdown-body">
+                    <h1>Implementación de Cloudinary con usuarios</h1>
+                    <p>En este tutorial se describe el proceso para poder implementar los archivos relacionados con la configuración de pruebas, la gestión de imágenes y la validación de usuarios en el proyecto.</p>
+                    
+                    <h2>1. Estructura de archivos de pruebas y configuración</h2>
+                    <ul>
+                        <li><strong>src/libs/cloudinary.ts</strong>: archivo que define la configuración global de cloudinary.</li>
+                        <li><strong>src/libs/validations/user.ts</strong>: este archivo anteriormente definido se deberá de actualizarse para incluir la validación de imágenes codificadas.</li>
+                        <li><strong>src/app/api/users/[id]/route.ts</strong>: este archivo anteriormente definido se deberá de actualizar para interactuar con cloudinary en el momento que gestione imágenes.</li>
+                        <li><strong>tests/libs/cloudinary.test.ts</strong>: tests relacionados con el uso e implementación de cloudinary.</li>
+                    </ul>
+                    
+                    <h2>2. src/libs/cloudinary.ts</h2>
+                    <p>Este archivo contiene funciones para gestionar imágenes en Cloudinary, un servicio de almacenamiento en la nube. Las funciones permiten cargar, eliminar y extraer la información relacionada con las imágenes, como sus URLs y <code>public_id</code>, lo que facilita la manipulación de archivos multimedia.</p>
+                    
+                    <h3>Funciones</h3>
+                    <ul>
+                        <li>Subir una imagen codificada a Cloudinary. Permite también especificar una carpeta dentro de Cloudinary y realiza transformaciones automáticas en la imagen antes de su carga, como la redimensión y la mejora de la calidad.</li>
+                        <li>Eliminar una imagen de Cloudinary usando su <code>public_id</code>.</li>
+                        <li>Extraer el <code>public_id</code> de una URL de Cloudinary.</li>
+                        <li>Subir un archivo PDF codificado a Cloudinary como un recurso bruto (<code>raw</code>).</li>
+                        <li>Eliminar un archivo PDF de Cloudinary usando su <code>public_id</code>.</li>
+                    </ul>
+                    
+                    <h2>3. src/libs/validations/user.ts</h2>
+                    <p>Este archivo se va a retocar para implementar las validaciones necesarias para probar el formato correcto de imagen</p>
+                    
+                    <h2>4. src/app/api/users/[id]/route.ts</h2>
+                    <p>Este archivo se modifica para interactuar con cloudinary y poder enviar y modificar archivos</p>
+                    
+                    <h2>5. tests/libs/cloudinary.test.ts</h2>
+                    <p>Este archivo contiene las pruebas unitarias para las funciones relacionadas con Cloudinary, utilizando <code>vitest</code> para mockear las llamadas a la API de Cloudinary y asegurar que las funciones se comporten correctamente en diferentes escenarios.</p>
+                    
+                    <h3>Pruebas</h3>
+                    <ul>
+                        <li><strong>uploadImage</strong><br>
+                            Se prueban tres casos:
+                            <ul>
+                                <li>Subida exitosa de una imagen codificada.</li>
+                                <li>Subida exitosa con una carpeta personalizada.</li>
+                                <li>Error al intentar subir una imagen.</li>
+                            </ul>
+                        </li>
+                        <li><strong>deleteImage</strong><br>
+                            Se prueban tres casos:
+                            <ul>
+                                <li>Eliminación exitosa de una imagen.</li>
+                                <li>Caso donde la imagen no se encuentra en Cloudinary.</li>
+                                <li>Error al intentar eliminar una imagen.</li>
+                            </ul>
+                        </li>
+                        <li><strong>extractPublicId</strong><br>
+                            Se prueban casos para extraer el <code>public_id</code> de una URL estándar de Cloudinary y otros casos con URL mal formadas o inválidas.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="capitulo7.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 7: Testing</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="capitulo9.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 9: Backend de Facturas</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
