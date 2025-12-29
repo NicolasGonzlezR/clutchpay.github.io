@@ -60,6 +60,11 @@ En este capítulo inicial aprenderás a configurar tu entorno de desarrollo en W
 - Docker Desktop
 - Next.js
 
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/1Gta6OvnkbvvTZbDcP0y0aZWiM9LYR-Ks/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
+
 ---
 
 ## Capítulo 2: Creación de Base de Datos
@@ -87,6 +92,11 @@ Configuración de PostgreSQL con Docker y Prisma ORM para gestionar la base de d
 - Pago (Payment)
 - Notificación (Notification)
 
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_2/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
+
 ---
 
 ## Capítulo 3: API REST y Login
@@ -110,6 +120,11 @@ Implementación del sistema completo de autenticación con NextAuth y validacion
 - Tokens JWT personalizados
 - Protección de rutas API
 
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_3/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
+
 ---
 
 ## Capítulo 4: Frontend de Login
@@ -131,6 +146,11 @@ Desarrollo del frontend para autenticación con formularios, validaciones y esti
 - `auth-register.js` - Lógica del formulario de registro
 - `auth-login.js` - Lógica del formulario de login
 - `style.css` - Estilos globales
+
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_4/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
 
 ---
 
@@ -154,6 +174,11 @@ Desarrollo de endpoints para gestión de perfiles y contactos de usuarios.
 - `GET /api/users/[id]/contacts` - Listar contactos
 - `POST /api/users/[id]/contacts` - Añadir contacto
 
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_5/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
+
 ---
 
 ## Capítulo 6: Frontend de Usuarios
@@ -174,6 +199,11 @@ Implementación del dashboard de usuario con gestión de perfil y contactos.
 - `dashboard_usuario.js` - Lógica de interacción
 - `dashboard_usuario.css` - Estilos del dashboard
 - `i18n.js` - Sistema de traducciones
+
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_6/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
 
 ---
 
@@ -196,6 +226,11 @@ Implementación de pruebas automatizadas para garantizar la calidad del código.
 - `tests/libs/auth.test.ts` - Pruebas de autenticación
 - `tests/libs/validations/` - Pruebas de validaciones
 - `tests/api/users/` - Pruebas de endpoints de usuarios
+
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_7/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
 
 ---
 
@@ -225,6 +260,11 @@ Implementación completa del sistema de gestión de facturas con almacenamiento 
 - `OVERDUE` - Vencida
 - `CANCELED` - Cancelada
 
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_9/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
+
 ---
 
 ## Capítulo 10: Frontend de Facturas
@@ -248,6 +288,11 @@ Desarrollo de la interfaz de usuario para gestión de facturas con tema claro/os
 - `dashboard/contacts.js` - Gestión de contactos
 - `theme.js` - Manejo de temas
 - `notifications.js` - Sistema de toasts
+
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_10/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
 
 ---
 
@@ -276,6 +321,11 @@ Integración con Stripe para procesar pagos de facturas de forma segura.
 - Soporte para múltiples monedas
 - Manejo de pagos asíncronos
 - Validación de webhooks
+
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_11/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
 
 ---
 
@@ -306,6 +356,11 @@ Implementación del flujo completo de pagos con distribución de fondos vía Pay
 - PayPal Payouts para emisores
 - Tolerancia a fallos y reintentos
 
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_12/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
+
 ---
 
 ## Capítulo 13: Módulos de Front para Pagos
@@ -330,6 +385,11 @@ Desarrollo de la clase PaymentManager para gestionar pagos desde el frontend.
 - `getSessionStatus()` - Consultar estado de sesión
 - `getPayments()` - Listar pagos del usuario
 - `getPaymentById()` - Obtener detalle de pago
+
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_13/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
 
 ---
 
@@ -360,6 +420,11 @@ Integración completa del sistema de pagos en la interfaz de usuario.
 - Filtros y ordenamiento
 - Descarga de recibos
 - Estados visuales de pago
+
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_14/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
 
 ---
 
@@ -397,6 +462,11 @@ Sistema completo de notificaciones in-app y por email.
 - Scheduler para notificaciones automáticas
 - Limpieza de notificaciones antiguas
 
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_15/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
+
 ---
 
 ## Capítulo 16: Notificaciones en Frontend
@@ -429,6 +499,11 @@ Implementación del sistema de notificaciones en la interfaz de usuario.
 - Notificaciones al cancelar facturas
 - Notificaciones de pagos
 - Sistema de eventos global
+
+### 🎥 Video Tutorial
+<div align="center">
+  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_16/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
+</div>
 
 ---
 
