@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 4: Frontend de Login - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="brand-title">
+                <span class="brand-logo-wrap" aria-hidden="true">
+                    <img src="assets/clutchpay_logo.svg" class="brand-logo" alt="">
+                </span>
+                <span class="brand-name">ClutchPay</span>
+            </h1>
+            <p class="subtitle">Capítulo 4: Frontend de Login</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="capitulo4.html" class="active">Capítulo 4</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 4: Frontend de Login</h1>
+            </div>
+
+            <div class="video-embed">
+                <iframe
+                    src="https://drive.google.com/file/d/1Pc8kiXbZaYcWCwVzkARTC65ulXRxo_YJ/preview"
+                    title="Video tutorial - Capítulo 4"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="content-section">
+                <h2>📖 Contenido Completo</h2>
+                <div class="markdown-body">
+                    <h1>Configuración del Frontend en ClutchPay: Formularios, Validaciones y Estilos</h1>
+                    <p>En este tutorial se explicará paso a paso cómo configurar el frontend de ClutchPay, incluyendo formularios de registro e inicio de sesión, validaciones de datos e interacciones con la API de autenticación.</p>
+                    <p>Al final, tendremos un frontend totalmente funcional, con validaciones en tiempo real, traducción de elementos y un estilo consistente.</p>
+                    
+                    <ol>
+                        <li>
+                            <strong>Estructura de archivos del frontend</strong>
+                            <ul>
+                                <li><strong>validaciones.js</strong>: Contiene funciones de validación para formularios (nombre, apellidos, email, contraseña, teléfono).</li>
+                                <li><strong>auth.js</strong>: Clase Auth que maneja la comunicación con los endpoints de autenticación (login, register, logout, checkSession).</li>
+                                <li><strong>auth-register.js</strong>: Lógica específica del formulario de registro, incluyendo traducción de países, envío de datos y manejo de errores.</li>
+                                <li><strong>auth-login.js</strong>: Lógica específica del formulario de inicio de sesión, con envío de datos y manejo de sesión.</li>
+                                <li><strong>style.css</strong>: Define todos los estilos.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Validaciones de formularios con validaciones.js</strong><br>
+                            El archivo validaciones.js contiene funciones independientes que aseguran que los datos ingresados por los usuarios sean correctos antes de enviarlos al backend.
+                        </li>
+                        <li>
+                            <strong>Clase de autenticación Auth (auth.js)</strong><br>
+                            El archivo auth.js centralizará todas las operaciones con el backend:
+                            <ul>
+                                <li>Envia los datos al endpoint /api/auth/callback/credentials y devuelve un objeto indicando éxito o error.</li>
+                                <li>Envía los datos del nuevo usuario al endpoint /api/auth/register y devuelve si la operación fue exitosa.</li>
+                                <li>Verifica si hay un usuario autenticado activo en la sesión.</li>
+                                <li>Cierra la sesión en el backend y redirige al usuario a la página de inicio.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Formulario de registro (auth-register.js)</strong><br>
+                            Este archivo manejará interacciones específicas del formulario de registro:
+                            <ul>
+                                <li>Los elementos <code>&lt;option&gt;</code> del <code>&lt;select&gt;</code> se traducen según el idioma guardado en localStorage.</li>
+                                <li>Se obtiene el valor de todos los campos (nombre, apellidos, email, contraseña, teléfono, país, imagen).</li>
+                                <li>Se llama a authInstance.register(formData) para crear un nuevo usuario en el backend.</li>
+                                <li>Si hay errores, se muestran y se habilita nuevamente el botón de envío.</li>
+                                <li>Cambia el texto del botón durante el envío para indicar que se está creando la cuenta.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Formulario de login (auth-login.js)</strong><br>
+                            El archivo auth-login.js se encarga del flujo de inicio de sesión:
+                            <ul>
+                                <li>Obtiene los valores de email y contraseña.</li>
+                                <li>Llama a authInstance.login(email, password) para autenticar al usuario.</li>
+                                <li>Si el login es exitoso, redirige al dashboard.</li>
+                                <li>Si hay error, muestra un alert() con el mensaje del backend.</li>
+                                <li>Cambia temporalmente el texto del botón durante la petición para indicar carga.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Comprobaciones</strong><br>
+                            Una vez establecidas todas las funciones anteriores, se harán pruebas sobre el front para login de usuario
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="capitulo3.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 3: API REST y Login</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="capitulo5.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 5: Backend de Usuarios</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>

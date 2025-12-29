@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 2: Creación de Base de Datos - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="brand-title">
+                <span class="brand-logo-wrap" aria-hidden="true">
+                    <img src="assets/clutchpay_logo.svg" class="brand-logo" alt="">
+                </span>
+                <span class="brand-name">ClutchPay</span>
+            </h1>
+            <p class="subtitle">Capítulo 2: Creación de Base de Datos</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="capitulo2.html" class="active">Capítulo 2</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 2: Creación de Base de Datos</h1>
+            </div>
+
+            <div class="video-embed">
+                <iframe
+                    src="https://drive.google.com/file/d/17o8G4ifomvbx7ssnYtdQdjmexg0ZQOGd/preview"
+                    title="Video tutorial - Capítulo 2"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="content-section">
+                <h2>📖 Contenido Completo</h2>
+                <div class="markdown-body">
+                    <h1>Capítulo 2: Creación de Base de Datos con Docker y Prisma</h1>
+                    <p>En este capítulo se configura la base de datos PostgreSQL utilizando Docker y cómo Prisma ORM para gestionar tu la base de datos de forma eficiente.</p>
+                    <hr>
+                    
+                    <h2>1. Arquitectura del Sistema</h2>
+                    <p>ClutchPay utiliza una arquitectura moderna con las siguientes tecnologías:</p>
+                    <ul>
+                        <li><strong>PostgreSQL</strong>: Base de datos relacional para almacenar usuarios, facturas y pagos</li>
+                        <li><strong>Docker</strong>: Para contenedorizar PostgreSQL y facilitar el desarrollo</li>
+                        <li><strong>Prisma ORM</strong>: Para gestionar el esquema de base de datos y las migraciones</li>
+                        <li><strong>Next.js</strong>: Framework full-stack para la aplicación web</li>
+                    </ul>
+                    <hr>
+                    
+                    <h2>2. Configuración de PostgreSQL con Docker</h2>
+                    
+                    <h3>El archivo docker-compose.yml</h3>
+                    <p>El archivo <code>docker/docker-compose.yml</code> define la configuración del contenedor de PostgreSQL:</p>
+                    <pre><code>services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres-data:</code></pre>
+                    
+                    <h3>Explicación de la configuración:</h3>
+                    <ul>
+                        <li><strong>image: postgres:15</strong>: Utiliza la imagen oficial de PostgreSQL versión 15</li>
+                        <li><strong>restart: always</strong>: El contenedor se reiniciará automáticamente si se detiene</li>
+                        <li><strong>environment</strong>: Variables de entorno que configuran:
+                            <ul>
+                                <li><code>POSTGRES_USER</code>: Usuario de la base de datos</li>
+                                <li><code>POSTGRES_PASSWORD</code>: Contraseña del usuario</li>
+                                <li><code>POSTGRES_DB</code>: Nombre de la base de datos</li>
+                            </ul>
+                        </li>
+                        <li><strong>ports</strong>: Mapea el puerto 5432 del contenedor al puerto 5432 del host</li>
+                        <li><strong>volumes</strong>: Persiste los datos en un volumen llamado <code>postgres-data</code></li>
+                        <li><strong>healthcheck</strong>: Verifica que PostgreSQL esté listo para aceptar conexiones</li>
+                    </ul>
+                    
+                    <h3>Iniciar la base de datos:</h3>
+                    <pre><code>cd docker
+docker-compose up -d</code></pre>
+                    <p>El flag <code>-d</code> ejecuta el contenedor en segundo plano (detached mode).</p>
+                    
+                    <h3>Verificar que el contenedor está corriendo:</h3>
+                    <pre><code>docker ps</code></pre>
+                    
+                    <h3>Detener la base de datos:</h3>
+                    <pre><code>docker-compose down</code></pre>
+                    <hr>
+                    
+                    <h2>3. Modelo de Datos de ClutchPay</h2>
+                    
+                    <h3>Descripción general del modelo</h3>
+                    <p>ClutchPay es una aplicación de gestión de facturas y pagos que incluye:</p>
+                    <ul>
+                        <li><strong>Usuarios</strong>: Personas que emiten y reciben facturas</li>
+                        <li><strong>Facturas</strong>: Documentos que representan deudas entre usuarios</li>
+                        <li><strong>Pagos</strong>: Transacciones que liquidan las facturas</li>
+                        <li><strong>Notificaciones</strong>: Alertas sobre eventos importantes</li>
+                        <li><strong>Contactos</strong>: Relaciones entre usuarios para facilitar transacciones</li>
+                    </ul>
+                    
+                    <h3>El archivo prisma/schema.prisma</h3>
+                    <p>Este archivo define el esquema completo de la base de datos utilizando Prisma ORM:</p>
+                    <pre><code>generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}</code></pre>
+                    <ul>
+                        <li><strong>generator client</strong>: Configura el cliente de Prisma para JavaScript/TypeScript</li>
+                        <li><strong>datasource db</strong>: Define PostgreSQL como base de datos y usa la variable de entorno <code>DATABASE_URL</code></li>
+                    </ul>
+                    <hr>
+                    
+                    <h2>4. Modelos de la Base de Datos</h2>
+                    
+                    <h3>Modelo User (Usuario)</h3>
+                    <pre><code>model User {
+  id                  Int       @id @default(autoincrement())
+  email               String    @unique
+  password            String    @db.VarChar(255)
+  name                String
+  surnames            String
+  phone               String?   @db.VarChar(20)
+  country             String?
+  imageUrl            String?
+  emailNotifications  Boolean   @default(true)
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  issuedInvoices    Invoice[] @relation("IssuerUser")
+  owedInvoices      Invoice[] @relation("DebtorUser")
+
+  contacts     User[] @relation("UserContacts")
+  contactOf    User[] @relation("UserContacts")
+
+  notifications  Notification[]
+
+  @@map("users")
+}</code></pre>
+                    <p><strong>Características principales:</strong></p>
+                    <ul>
+                        <li><code>id</code>: Identificador único autoincrementable</li>
+                        <li><code>email</code>: Correo electrónico único para autenticación</li>
+                        <li><code>password</code>: Contraseña hasheada (máximo 255 caracteres)</li>
+                        <li><code>emailNotifications</code>: Preferencia de notificaciones por email (activada por defecto)</li>
+                        <li><strong>Relaciones</strong>:
+                            <ul>
+                                <li><code>issuedInvoices</code>: Facturas que el usuario ha emitido</li>
+                                <li><code>owedInvoices</code>: Facturas que el usuario debe pagar</li>
+                                <li><code>contacts</code> y <code>contactOf</code>: Relación auto-referencial para la lista de contactos</li>
+                                <li><code>notifications</code>: Notificaciones del usuario</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h3>Modelo Invoice (Factura)</h3>
+                    <pre><code>model Invoice {
+  id                Int       @id @default(autoincrement())
+  invoiceNumber     String    @unique
+  issuerUserId      Int
+  debtorUserId      Int
+  subject           String    @db.Text
+  description       String    @db.Text
+  amount            Decimal   @db.Decimal(10, 2)
+  status            InvoiceStatus @default(PENDING)
+  issueDate         DateTime  
+  dueDate           DateTime?
+  invoicePdfUrl     String
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  issuerUser        User      @relation("IssuerUser", fields: [issuerUserId], references: [id])
+  debtorUser        User      @relation("DebtorUser", fields: [debtorUserId], references: [id])
+
+  payment          Payment?
+  notifications  Notification[]
+
+  @@index([issuerUserId])
+  @@index([debtorUserId])
+  @@map("invoices")
+}</code></pre>
+                    <p><strong>Características principales:</strong></p>
+                    <ul>
+                        <li><code>invoiceNumber</code>: Número de factura único</li>
+                        <li><code>amount</code>: Monto con precisión decimal (10 dígitos, 2 decimales)</li>
+                        <li><code>status</code>: Estado de la factura (PENDING, PAID, OVERDUE, CANCELED)</li>
+                        <li><code>invoicePdfUrl</code>: URL del PDF de la factura</li>
+                        <li><strong>Relaciones</strong>:
+                            <ul>
+                                <li><code>issuerUser</code>: Usuario que emite la factura</li>
+                                <li><code>debtorUser</code>: Usuario que debe pagar la factura</li>
+                                <li><code>payment</code>: Pago asociado (relación uno a uno opcional)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Índices</strong>: En <code>issuerUserId</code> y <code>debtorUserId</code> para mejorar el rendimiento de las consultas</li>
+                    </ul>
+                    
+                    <h3>Modelo Payment (Pago)</h3>
+                    <pre><code>model Payment {
+  id                Int       @id @default(autoincrement())
+  invoiceId         Int       @unique
+  paymentDate       DateTime
+  paymentMethod     PaymentMethod
+  paymentReference  String?
+  receiptPdfUrl     String
+  subject           String?   @db.Text
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  invoice           Invoice   @relation(fields: [invoiceId], references: [id], onDelete: Restrict)
+
+  @@index([invoiceId])
+  @@map("payments")
+}</code></pre>
+                    <p><strong>Características principales:</strong></p>
+                    <ul>
+                        <li><code>invoiceId</code>: Relación única con una factura (un pago por factura)</li>
+                        <li><code>paymentMethod</code>: Método de pago (PAYPAL, VISA, MASTERCARD, OTHER)</li>
+                        <li><code>receiptPdfUrl</code>: URL del comprobante de pago</li>
+                        <li><code>onDelete: Restrict</code>: Previene la eliminación de facturas que tienen pagos asociados</li>
+                    </ul>
+                    
+                    <h3>Modelo Notification (Notificación)</h3>
+                    <pre><code>model Notification {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  invoiceId Int
+  type      NotificationType
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  invoice   Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Restrict)
+}</code></pre>
+                    <p><strong>Características principales:</strong></p>
+                    <ul>
+                        <li><code>type</code>: Tipo de notificación (INVOICE_ISSUED, PAYMENT_DUE, PAYMENT_OVERDUE, PAYMENT_RECEIVED, INVOICE_CANCELED)</li>
+                        <li><code>read</code>: Estado de lectura de la notificación</li>
+                        <li><code>onDelete: Cascade</code>: Las notificaciones se eliminan cuando se elimina el usuario</li>
+                    </ul>
+                    <hr>
+                    
+                    <h2>5. Enumeraciones (Enums)</h2>
+                    
+                    <h3>InvoiceStatus</h3>
+                    <pre><code>enum InvoiceStatus {
+  PENDING    // Factura pendiente de pago
+  PAID       // Factura pagada
+  OVERDUE    // Factura vencida
+  CANCELED   // Factura cancelada
+}</code></pre>
+                    
+                    <h3>PaymentMethod</h3>
+                    <pre><code>enum PaymentMethod {
+  PAYPAL
+  VISA
+  MASTERCARD
+  OTHER
+}</code></pre>
+                    
+                    <h3>NotificationType</h3>
+                    <pre><code>enum NotificationType {
+  INVOICE_ISSUED      // Notificación cuando se emite una factura
+  PAYMENT_DUE         // Recordatorio de pago próximo a vencer
+  PAYMENT_OVERDUE     // Notificación de pago vencido
+  PAYMENT_RECEIVED    // Confirmación de pago recibido
+  INVOICE_CANCELED    // Notificación de factura cancelada
+}</code></pre>
+                    <hr>
+                    
+                    <h2>6. Variables de Entorno</h2>
+                    <p>Antes de ejecutar las migraciones, asegúrate de configurar tus variables de entorno. Crea un archivo <code>.env</code> en la raíz del proyecto:</p>
+                    <pre><code># PostgreSQL Configuration
+POSTGRES_USER=clutchpay_user
+POSTGRES_PASSWORD=tu_password_seguro
+POSTGRES_DB=clutchpay_db
+
+# Prisma Database URL
+DATABASE_URL="postgresql://clutchpay_user:tu_password_seguro@localhost:5432/clutchpay_db?schema=public"</code></pre>
+                    <p><strong>Nota importante</strong>: La <code>DATABASE_URL</code> debe seguir el formato:</p>
+                    <pre><code>postgresql://[usuario]:[contraseña]@[host]:[puerto]/[nombre_db]?schema=public</code></pre>
+                    <hr>
+                    
+                    <h2>7. Ejecutar Migraciones con Prisma</h2>
+                    
+                    <h3>Crear y aplicar la migración inicial</h3>
+                    <p>Una vez que tengas el contenedor de PostgreSQL corriendo y las variables de entorno configuradas, ejecuta:</p>
+                    <pre><code>npx prisma migrate dev --name init</code></pre>
+                    <p>Este comando realiza las siguientes acciones:</p>
+                    <ol>
+                        <li><strong>Crea la migración</strong>: Genera archivos SQL en <code>prisma/migrations/</code> basados en tu esquema</li>
+                        <li><strong>Aplica la migración</strong>: Ejecuta el SQL contra tu base de datos</li>
+                        <li><strong>Genera el cliente Prisma</strong>: Crea/actualiza el cliente de Prisma para usar en tu código</li>
+                        <li><strong>Registra la migración</strong>: Guarda un registro en la tabla <code>_prisma_migrations</code></li>
+                    </ol>
+                    <p><strong>Salida esperada:</strong></p>
+                    <pre><code>Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": PostgreSQL database "clutchpay_db"
+
+Applying migration `20251113114156_init`
+
+The following migration(s) have been created and applied from new schema changes:
+
+migrations/
+  └─ 20251113114156_init/
+    └─ migration.sql
+
+Your database is now in sync with your schema.
+
+✔ Generated Prisma Client (v5.x.x) to ./node_modules/@prisma/client</code></pre>
+                    
+                    <h3>Verificar las migraciones</h3>
+                    <p>Puedes ver el estado de tus migraciones con:</p>
+                    <pre><code>npx prisma migrate status</code></pre>
+                    <hr>
+                    
+                    <h2>8. Explorar la Base de Datos con Prisma Studio</h2>
+                    <p>Prisma Studio es una interfaz gráfica que te permite visualizar y editar los datos de tu base de datos de forma visual.</p>
+                    
+                    <h3>Iniciar Prisma Studio</h3>
+                    <pre><code>npx prisma studio</code></pre>
+                    <p>Esto abrirá automáticamente tu navegador en <code>http://localhost:5555</code> donde podrás:</p>
+                    <ul>
+                        <li><strong>Ver todas las tablas</strong>: Users, Invoices, Payments, Notifications</li>
+                        <li><strong>Explorar registros</strong>: Navegar por los datos existentes</li>
+                        <li><strong>Crear registros</strong>: Añadir nuevos usuarios, facturas, etc.</li>
+                        <li><strong>Editar registros</strong>: Modificar datos existentes</li>
+                        <li><strong>Eliminar registros</strong>: Borrar datos (respetando las restricciones de la base de datos)</li>
+                    </ul>
+                    
+                    <h3>Características de Prisma Studio:</h3>
+                    <ul>
+                        <li><strong>Interfaz intuitiva</strong>: Navega por tus datos de forma visual</li>
+                        <li><strong>Filtros y búsqueda</strong>: Encuentra registros rápidamente</li>
+                        <li><strong>Relaciones</strong>: Visualiza y navega por las relaciones entre tablas</li>
+                        <li><strong>Sin SQL</strong>: Modifica datos sin escribir consultas SQL</li>
+                    </ul>
+                    <hr>
+                    
+                    <h2>9. Comandos Útiles de Prisma</h2>
+                    
+                    <h3>Generar el cliente Prisma</h3>
+                    <pre><code>npx prisma generate</code></pre>
+                    
+                    <h3>Resetear la base de datos (¡Cuidado! Elimina todos los datos)</h3>
+                    <pre><code>npx prisma migrate reset</code></pre>
+                    
+                    <h3>Ver el esquema en formato visual</h3>
+                    <pre><code>npx prisma studio</code></pre>
+                    
+                    <h3>Crear una nueva migración</h3>
+                    <pre><code>npx prisma migrate dev --name nombre_descriptivo</code></pre>
+                    
+                    <h3>Aplicar migraciones en producción</h3>
+                    <pre><code>npx prisma migrate deploy</code></pre>
+                    
+                    <h3>Formatear el archivo schema.prisma</h3>
+                    <pre><code>npx prisma format</code></pre>
+                    <hr>
+                    
+                    <h2>10. Resumen del Flujo de Trabajo</h2>
+                    <ol>
+                        <li><strong>Iniciar la base de datos</strong>:
+                            <pre><code>cd docker
+docker-compose up -d</code></pre>
+                        </li>
+                        <li><strong>Configurar variables de entorno</strong>:
+                            <ul><li>Crear archivo <code>.env</code> con <code>DATABASE_URL</code></li></ul>
+                        </li>
+                        <li><strong>Ejecutar migraciones</strong>:
+                            <pre><code>npx prisma migrate dev --name init</code></pre>
+                        </li>
+                        <li><strong>Explorar la base de datos</strong>:
+                            <pre><code>npx prisma studio</code></pre>
+                        </li>
+                        <li><strong>Desarrollar tu aplicación</strong>:
+                            <ul><li>Usa el cliente Prisma generado en <code>node_modules/@prisma/client</code></li></ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="capitulo1.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 1: Instalación</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="capitulo3.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 3: API REST y Login</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>

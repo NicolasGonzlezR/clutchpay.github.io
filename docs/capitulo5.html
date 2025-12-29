@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 5: Backend de Usuarios - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="brand-title">
+                <span class="brand-logo-wrap" aria-hidden="true">
+                    <img src="assets/clutchpay_logo.svg" class="brand-logo" alt="">
+                </span>
+                <span class="brand-name">ClutchPay</span>
+            </h1>
+            <p class="subtitle">Capítulo 5: Backend de Usuarios</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="capitulo5.html" class="active">Capítulo 5</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 5: Backend de Usuarios</h1>
+            </div>
+
+            <div class="video-embed">
+                <iframe
+                    src="https://drive.google.com/file/d/1pai1iow8CWJIYfomDnTJhaFKPRc5dq4g/preview"
+                    title="Video tutorial - Capítulo 5"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="content-section">
+                <h2>📖 Contenido Completo</h2>
+                <div class="markdown-body">
+                    <h1>Configuración del Backend: Validaciones, Seguridad y Endpoints de Usuarios</h1>
+                    <p>En este tutorial se explicará paso a paso cómo está organizado el backend encargado de validar usuarios, gestionar autenticación, controlar el acceso y ofrecer endpoints relacionados con perfiles y contactos.</p>
+                    
+                    <ol>
+                        <li>
+                            <strong>Estructura de archivos del backend</strong>
+                            <ul>
+                                <li><strong>validations/users.ts</strong>: Se añadirán funciones referentes a las nuevas validaciones respecto a perfiles de usuario, así como los esquemas utilizados para crear o actualizar perfiles y añadir contactos.</li>
+                                <li><strong>api-helpers.ts</strong>: Reúne funciones útiles para el backend, como la comprobación del usuario autenticado, la validación general de datos recibidos, el control de permisos entre usuarios y la gestión centralizada de errores y paginación.</li>
+                                <li><strong>/api/users/route.ts</strong>: Controla el endpoint encargado de devolver un listado paginado de todos los usuarios registrados, asegurando que solo usuarios con sesión pueden acceder.</li>
+                                <li><strong>/api/users/[id]/route.ts</strong>: Gestiona la obtención y actualización del perfil individual de un usuario, garantizando que cada persona solo pueda acceder o modificar su propia información.</li>
+                                <li><strong>/api/users/[id]/contacts/route.ts</strong>: Implementa el sistema de contactos entre usuarios, permitiendo consultar la lista de contactos o añadir nuevos, siempre comprobando identidades y validaciones necesarias.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Validaciones de datos con validations/users.ts</strong><br>
+                            Este archivo se actualizará para incluir las reglas que aseguren que los datos de edición enviados por el usuario sean correctos antes de llegar a la base de datos: Se actualizarán los esquemas que controlan cómo se editan y cómo se añaden contactos en relaciones muchos a muchos.
+                        </li>
+                        <li>
+                            <strong>Herramientas de autenticación, autorización y manejo de errores (api-helpers.ts)</strong><br>
+                            Este archivo centralizará varias tareas críticas del backend:
+                            <ul>
+                                <li>Comprueba si el usuario que realiza la petición tiene una sesión activa.</li>
+                                <li>Verifica que los usuarios solo puedan acceder o modificar su propia información, salvo en entornos de desarrollo.</li>
+                                <li>Convierte cualquier error del sistema o de validación en una respuesta consistente y clara para el cliente.</li>
+                                <li>Valida los cuerpos de las peticiones usando los esquemas previamente definidos.</li>
+                                <li>Gestiona paginación a partir de parámetros como página, límite y desplazamiento.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Listado de usuarios (api/users/route.ts)</strong><br>
+                            Este archivo controlará el endpoint que devuelve un listado paginado de usuarios:
+                            <ul>
+                                <li>Solo permite el acceso si existe una sesión activa.</li>
+                                <li>Analiza los parámetros de la URL para determinar página, límite y desplazamiento.</li>
+                                <li>Consulta cuántos usuarios hay en total.</li>
+                                <li>Devuelve un conjunto paginado con información esencial del usuario: correo, nombre, apellidos, teléfono, país, imagen, fecha de creación y actualización.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Gestión de perfiles individuales (api/users/[id]/route.ts)</strong><br>
+                            Este archivo estará centrado en la gestión del perfil personal de cada usuario, tanto para consultarlo como para actualizarlo.
+                            <p>Para la lectura del perfil:</p>
+                            <ul>
+                                <li>Comprueba que la persona esté autenticada.</li>
+                                <li>Verifica que el usuario acceda solo a su propio perfil.</li>
+                                <li>Devuelve los datos del perfil sin incluir información sensible.</li>
+                            </ul>
+                            <p>Para la actualización:</p>
+                            <ul>
+                                <li>Se confirma la identidad del usuario.</li>
+                                <li>Se reciben los datos enviados desde el cliente y se validan con las reglas establecidas.</li>
+                                <li>Se actualizan únicamente los campos permitidos.</li>
+                                <li>Se devuelve el perfil modificado.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Gestión de contactos entre usuarios (api/users/[id]/contacts/route.ts)</strong><br>
+                            Aquí se encontrará el sistema que permite a un usuario mantener una lista de contactos.
+                            <p>Para consultar los contactos:</p>
+                            <ul>
+                                <li>Se exige autenticación.</li>
+                                <li>Se interpreta el identificador del usuario directamente desde el path.</li>
+                                <li>Solo se permite acceder a la propia lista de contactos.</li>
+                                <li>Se obtiene el número total de contactos y se aplica paginación.</li>
+                                <li>Se devuelven los datos esenciales de cada contacto.</li>
+                            </ul>
+                            <p>Para añadir un nuevo contacto:</p>
+                            <ul>
+                                <li>Se validan los datos enviados en el cuerpo de la petición.</li>
+                                <li>Se impide que un usuario se añada a sí mismo.</li>
+                                <li>Se comprueba que el contacto exista.</li>
+                                <li>Se revisa que no esté ya en la lista de contactos.</li>
+                                <li>Se agrega la relación en la base de datos y se devuelve la información del contacto añadido.</li>
+                                <li>Si se detectan duplicidades o errores de validación, se responde de forma clara y estructurada.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="capitulo4.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 4: Frontend de Login</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="capitulo6.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 6: Frontend de Usuarios</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>

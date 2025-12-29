@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 9: Backend de Facturas - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 9: Backend de Facturas</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="capitulo9.html" class="active">Capítulo 9</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 9: Backend de Facturas</h1>
+            </div>
+
+            <div class="video-embed">
+                <iframe
+                    src="https://drive.google.com/file/d/1yLY1gJ5-hidYi6tph8oSwSJVF0UphdNo/preview"
+                    title="Video tutorial - Capítulo 9"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="content-section">
+                <h2>📖 Contenido Completo</h2>
+                <div class="markdown-body">
+                    <h1>Implementación de Gestión de Facturas</h1>
+                    <p>En este tutorial se describe el proceso para implementar la funcionalidad completa de gestión de facturas (invoices) en el proyecto, incluyendo creación, actualización, eliminación y almacenamiento de PDFs en Cloudinary.</p>
+                    
+                    <h2>1. Estructura de archivos de pruebas y configuración</h2>
+                    <ul>
+                        <li><strong>prisma/schema.prisma</strong>: schema actualizado con modelo <code>Invoice</code></li>
+                        <li><strong>src/libs/validations/invoice.ts</strong>: archivo que define los schemas de validación para facturas usando Zod.</li>
+                        <li><strong>src/app/api/invoices/route.ts</strong>: endpoint para listar y crear facturas.</li>
+                        <li><strong>src/app/api/invoices/[id]/route.ts</strong>: endpoint para obtener, actualizar y eliminar facturas específicas.</li>
+                    </ul>
+                    
+                    <h2>2. prisma/schema.prisma</h2>
+                    <p>Este archivo contiene el modelo <code>Invoice</code> que permite gestionar facturas y sus pagos asociados. Las relaciones establecidas permiten vincular facturas con usuarios (emisor y deudor) y rastrear pagos.</p>
+                    
+                    <h3>Modelos</h3>
+                    <p><strong>Invoice</strong>: Representa una factura con campos como número de factura, usuarios relacionados, monto, estado, fechas y URL del PDF almacenado en Cloudinary.</p>
+                    
+                    <h3>Relaciones</h3>
+                    <ul>
+                        <li>Una factura tiene un emisor (<code>issuer</code>) y un deudor (<code>debtor</code>), ambos usuarios.</li>
+                        <li>Una factura puede tener un pago asociado.</li>
+                        <li>Un usuario puede emitir múltiples facturas y ser deudor en múltiples facturas.</li>
+                    </ul>
+                    
+                    <h2>3. src/libs/validations/invoice.ts</h2>
+                    <p>Este archivo contiene los schemas de validación para operaciones de facturas:</p>
+                    
+                    <h3>Schemas</h3>
+                    <ul>
+                        <li><strong>invoiceCreateSchema</strong>: Valida los datos necesarios para crear una factura, incluyendo números, montos, fechas y PDF en base64.</li>
+                        <li><strong>invoiceUpdateSchema</strong>: Valida los datos para actualizar una factura, permitiendo actualizar campos como asunto, descripción y monto.</li>
+                        <li><strong>paymentCreateSchema</strong>: Valida los datos necesarios para registrar un pago en una factura.</li>
+                    </ul>
+                    
+                    <h2>4. src/app/api/invoices/route.ts</h2>
+                    <p>Este archivo maneja las operaciones sobre la colección de facturas.</p>
+                    
+                    <h3>Endpoints</h3>
+                    <ul>
+                        <li><strong>GET /api/invoices</strong>: Lista todas las facturas del usuario autenticado (como emisor o deudor) con paginación.
+                            <ul><li>Parámetros: <code>page</code>, <code>limit</code>, <code>status</code>, <code>role</code></li></ul>
+                        </li>
+                        <li><strong>POST /api/invoices</strong>: Crea una nueva factura.
+                            <ul><li>Body: invoiceNumber, issuerUserId, debtorUserId, subject, amount, etc.</li>
+                            <li>El PDF debe enviarse codificado.</li></ul>
+                        </li>
+                    </ul>
+                    
+                    <h2>5. src/app/api/invoices/[id]/route.ts</h2>
+                    <p>Este archivo maneja operaciones sobre facturas individuales.</p>
+                    
+                    <h3>Endpoints</h3>
+                    <ul>
+                        <li><strong>GET /api/invoices/:id</strong>: Obtiene los detalles de una factura específica incluyendo información de pagos.
+                            <ul><li>Solo el emisor o deudor pueden acceder.</li></ul>
+                        </li>
+                        <li><strong>PUT /api/invoices/:id</strong>: Actualiza una factura.
+                            <ul>
+                                <li>Solo el emisor puede actualizar.</li>
+                                <li>No se pueden actualizar facturas que ya tienen un pago registrado.</li>
+                                <li>Permite reemplazar el PDF.</li>
+                            </ul>
+                        </li>
+                        <li><strong>DELETE /api/invoices/:id</strong>: Cancela o elimina una factura.
+                            <ul>
+                                <li>Solo el emisor puede cancelar.</li>
+                                <li>Elimina el PDF de Cloudinary.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="capitulo8.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 8: API Cloudinary</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="capitulo10.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 10: Frontend de Facturas</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClutchPay - Guía de Desarrollo Completa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="brand-title">
+                <span class="brand-logo-wrap" aria-hidden="true">
+                    <img src="assets/clutchpay_logo.svg" class="brand-logo" alt="">
+                </span>
+                <span class="brand-name">ClutchPay</span>
+            </h1>
+            <p class="subtitle">Guía de Desarrollo Completa</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html" class="active">Inicio</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Bienvenido a ClutchPay</h2>
+            <p>Esta página consiste en una guía estructurada para la realización de un proyecto con pasarela de pago PayPal usando Stripe y Next. Basándose en el proyecto académico <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a>.</p>
+            <p>Un sistema completo de gestión de facturas y pagos desarrollado con Next.js, PostgreSQL, Prisma, Stripe y PayPal.</p>
+        </section>
+
+        <section class="parts">
+            <div class="part">
+                <h2>📦 Parte I: Configuración Inicial</h2>
+                <div class="chapters">
+                    <a href="capitulo1.html" class="chapter-card">
+                        <h3>Capítulo 1: Instalación y Configuración</h3>
+                        <p>Configuración del entorno de desarrollo, instalación de herramientas y creación del proyecto Next.js</p>
+                        <span class="tools">🛠️ VS Code, Node.js, Docker, Next.js</span>
+                    </a>
+                    <a href="capitulo2.html" class="chapter-card">
+                        <h3>Capítulo 2: Creación de Base de Datos</h3>
+                        <p>Configuración de PostgreSQL con Docker y diseño del esquema con Prisma ORM</p>
+                        <span class="tools">🗄️ PostgreSQL, Docker Compose, Prisma</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>🔐 Parte II: Autenticación</h2>
+                <div class="chapters">
+                    <a href="capitulo3.html" class="chapter-card">
+                        <h3>Capítulo 3: API REST y Login</h3>
+                        <p>Sistema completo de autenticación con NextAuth, validaciones y JWT</p>
+                        <span class="tools">🔑 NextAuth.js, Zod, bcrypt, JWT</span>
+                    </a>
+                    <a href="capitulo4.html" class="chapter-card">
+                        <h3>Capítulo 4: Frontend de Login</h3>
+                        <p>Desarrollo de formularios de autenticación con validaciones en tiempo real</p>
+                        <span class="tools">💻 HTML5, CSS3, JavaScript ES6+</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>👥 Parte III: Gestión de Usuarios</h2>
+                <div class="chapters">
+                    <a href="capitulo5.html" class="chapter-card">
+                        <h3>Capítulo 5: Backend de Usuarios</h3>
+                        <p>Endpoints RESTful para gestión de perfiles y sistema de contactos</p>
+                        <span class="tools">📡 REST API, Validaciones, Autorización</span>
+                    </a>
+                    <a href="capitulo6.html" class="chapter-card">
+                        <h3>Capítulo 6: Frontend de Usuarios</h3>
+                        <p>Dashboard interactivo con gestión de perfil, contactos e internacionalización</p>
+                        <span class="tools">🎨 Dashboard, i18n, Módulos JS</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>🧪 Parte IV: Testing</h2>
+                <div class="chapters">
+                    <a href="capitulo7.html" class="chapter-card">
+                        <h3>Capítulo 7: Testing usando Vitest</h3>
+                        <p>Implementación de pruebas unitarias e integración para garantizar calidad</p>
+                        <span class="tools">✅ Vitest, Testing Library</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>☁️ Parte V: Cloudinary</h2>
+                <div class="chapters">
+                    <a href="capitulo8.html" class="chapter-card">
+                        <h3>Capítulo 8: Configuración API Cloudinary</h3>
+                        <p>Gestión de archivos multimedia y almacenamiento en la nube</p>
+                        <span class="tools">📦 Cloudinary, Base64, Transformaciones</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>📄 Parte VI: Sistema de Facturas</h2>
+                <div class="chapters">
+                    <a href="capitulo9.html" class="chapter-card">
+                        <h3>Capítulo 9: Backend de Facturas</h3>
+                        <p>Sistema completo de gestión de facturas con CRUD y almacenamiento de PDFs</p>
+                        <span class="tools">📋 Prisma, Cloudinary, Estados de factura</span>
+                    </a>
+                    <a href="capitulo10.html" class="chapter-card">
+                        <h3>Capítulo 10: Frontend de Facturas</h3>
+                        <p>Interfaz modular con tema claro/oscuro y sistema de notificaciones</p>
+                        <span class="tools">🎨 Módulos, Temas, Toasts</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>💳 Parte VII: Sistema de Pagos</h2>
+                <div class="chapters">
+                    <a href="capitulo11.html" class="chapter-card">
+                        <h3>Capítulo 11: Backend de Pagos y Stripe Básico</h3>
+                        <p>Integración con Stripe para procesar pagos de forma segura</p>
+                        <span class="tools">💰 Stripe Checkout, Webhooks</span>
+                    </a>
+                    <a href="capitulo12.html" class="chapter-card">
+                        <h3>Capítulo 12: Conexión con PayPal</h3>
+                        <p>Flujo completo con distribución de fondos y generación de recibos</p>
+                        <span class="tools">💸 PayPal Payouts, PDFKit</span>
+                    </a>
+                    <a href="capitulo13.html" class="chapter-card">
+                        <h3>Capítulo 13: Módulos de Front para Pagos</h3>
+                        <p>PaymentManager para gestión de pagos desde el cliente</p>
+                        <span class="tools">⚙️ JavaScript Modules, Stripe JS</span>
+                    </a>
+                    <a href="capitulo14.html" class="chapter-card">
+                        <h3>Capítulo 14: Frontend de Pagos</h3>
+                        <p>Integración completa del sistema de pagos en la UI</p>
+                        <span class="tools">🔄 Stripe Checkout, Callbacks, Recibos</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>🔔 Parte VIII: Sistema de Notificaciones</h2>
+                <div class="chapters">
+                    <a href="capitulo15.html" class="chapter-card">
+                        <h3>Capítulo 15: Backend de Notificaciones</h3>
+                        <p>Sistema completo de notificaciones in-app y por email</p>
+                        <span class="tools">📧 Resend, Plantillas React, Scheduler</span>
+                    </a>
+                    <a href="capitulo16.html" class="chapter-card">
+                        <h3>Capítulo 16: Notificaciones en Frontend</h3>
+                        <p>Modal de notificaciones con contador en tiempo real</p>
+                        <span class="tools">🔔 Eventos, Modal, Badge</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack">
+            <h2>🚀 Tecnologías Utilizadas</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>Next.js</li>
+                        <li>PostgreSQL</li>
+                        <li>Prisma ORM</li>
+                        <li>NextAuth.js</li>
+                        <li>Zod</li>
+                        <li>bcryptjs</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>HTML5 / CSS3</li>
+                        <li>JavaScript ES6+</li>
+                        <li>Sistema modular</li>
+                        <li>i18n</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Servicios externos</h3>
+                    <ul>
+                        <li>Stripe</li>
+                        <li>PayPal</li>
+                        <li>Cloudinary</li>
+                        <li>Resend</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Testing & DevOps</h3>
+                    <ul>
+                        <li>Vitest</li>
+                        <li>@testing-library</li>
+                        <li>Docker</li>
+                        <li>Docker Compose</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+

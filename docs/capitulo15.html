@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 15: Backend de Notificaciones - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 15: Backend de Notificaciones</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="capitulo15.html" class="active">Capítulo 15</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 15: Backend de Notificaciones</h1>
+            </div>
+
+            <div class="video-embed">
+                <iframe
+                    src="https://drive.google.com/file/d/14llUQ7yHvnbKTSxrDJlThQ12WHn2_0FK/preview"
+                    title="Video tutorial - Capítulo 15"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="content-section">
+                <h2>📖 Contenido Completo</h2>
+                <div class="markdown-body">
+                    <h1>Implementación de Gestión de Notificaciones</h1>
+                    <p>En este tutorial se describe el proceso para implementar la funcionalidad completa de gestión de notificaciones en el proyecto, incluyendo creación, lectura, actualización, eliminación y envío de correos electrónicos relacionados con facturas y pagos.</p>
+                    
+                    <h2>1. Estructura de archivos de notificaciones y configuración</h2>
+                    <ul>
+                        <li><strong>src/libs/notifications.ts</strong>: Contiene la lógica principal para crear, formatear y enviar notificaciones, tanto in-app como por email.</li>
+                        <li><strong>src/libs/email/templates/</strong>: Contiene las plantillas de emails para distintos tipos de notificaciones (<code>InvoiceIssuedEmail</code>, <code>PaymentReceivedEmail</code>, etc.).</li>
+                        <li><strong>src/app/api/notifications/route.ts</strong>: Endpoint para listar, marcar como leídas y eliminar notificaciones de manera masiva.</li>
+                        <li><strong>src/app/api/notifications/[id]/route.ts</strong>: Endpoint para obtener, actualizar y eliminar notificaciones específicas.</li>
+                        <li><strong>src/libs/validations/notification.ts</strong>: Schemas de validación usando Zod para las operaciones de notificaciones.</li>
+                    </ul>
+                    
+                    <h2>2. src/libs/notifications.ts</h2>
+                    <p>Este archivo contiene toda la lógica de notificaciones de la aplicación.</p>
+                    
+                    <h3>Funcionalidades principales</h3>
+                    <ul>
+                        <li><strong>Creación de notificaciones in-app</strong>: Para eventos como facturas emitidas, pagos recibidos, facturas canceladas y pagos vencidos o atrasados.</li>
+                        <li><strong>Envío de correos electrónicos</strong>: Se utilizan plantillas React y datos del usuario para enviar notificaciones por email si el usuario tiene habilitadas las notificaciones por correo.</li>
+                        <li><strong>Formato de mensajes</strong>: Los mensajes incluyen placeholders como <code>{invoiceNumber}</code>, <code>{issuerName}</code>, <code>{debtorName}</code>, <code>{amount}</code>, <code>{currency}</code>, <code>{dueDate}</code> que se reemplazan con los datos reales.</li>
+                        <li><strong>Formateo de respuesta</strong>: Se construyen objetos listos para la API con el mensaje formateado, estado de lectura y datos de la factura asociada.</li>
+                    </ul>
+                    
+                    <h3>Funciones importantes</h3>
+                    <ul>
+                        <li><strong>notifyInvoiceIssued(invoice: InvoiceWithUsers)</strong>: Notifica al deudor que se ha emitido una nueva factura.</li>
+                        <li><strong>notifyPaymentReceived(invoice: InvoiceWithUsers)</strong>: Notifica al emisor que se ha recibido un pago.</li>
+                        <li><strong>notifyInvoiceCanceled(invoice: InvoiceWithUsers, reason?: string)</strong>: Notifica al deudor que la factura ha sido cancelada.</li>
+                        <li><strong>notifyPaymentDue(invoice: InvoiceWithUsers)</strong>: Notifica al deudor que una factura está próxima a vencer.</li>
+                        <li><strong>notifyPaymentOverdue(invoice: InvoiceWithUsers)</strong>: Notifica al deudor que una factura está vencida.</li>
+                        <li><strong>formatNotificationResponse(notification)</strong>: Formatea una notificación para la respuesta de la API.</li>
+                        <li><strong>cleanupOldReadNotifications(daysOld: number = 30)</strong>: Elimina notificaciones leídas antiguas.</li>
+                        <li><strong>checkAndNotifyPaymentDue(daysBeforeDue: number = 3)</strong> y <strong>checkAndNotifyPaymentOverdue()</strong>: Funciones de scheduler para enviar notificaciones automáticamente según fechas de vencimiento.</li>
+                    </ul>
+                    
+                    <h2>3. src/libs/validations/notification.ts</h2>
+                    <p>Este archivo contiene los schemas de validación para operaciones de notificaciones:</p>
+                    
+                    <h3>Schemas</h3>
+                    <ul>
+                        <li><strong>notificationListQuerySchema</strong>: Valida los parámetros de consulta al listar notificaciones (paginación, tipo, estado de lectura, orden).</li>
+                        <li><strong>notificationBulkReadSchema</strong>: Valida los datos para marcar notificaciones como leídas de forma masiva.</li>
+                        <li><strong>notificationBulkDeleteSchema</strong>: Valida los datos para eliminar notificaciones de forma masiva.</li>
+                        <li><strong>notificationIdParamSchema</strong>: Valida que el parámetro <code>id</code> de la ruta sea un número válido.</li>
+                        <li><strong>notificationUpdateSchema</strong>: Valida la actualización de una notificación individual (por ejemplo, marcar como leída).</li>
+                    </ul>
+                    
+                    <h2>4. src/app/api/notifications/route.ts</h2>
+                    <p>Este archivo maneja operaciones sobre la colección de notificaciones.</p>
+                    
+                    <h3>Endpoints</h3>
+                    <ul>
+                        <li><strong>GET /api/notifications</strong>: Lista todas las notificaciones del usuario autenticado con paginación y filtros.
+                            <ul><li>Parámetros: <code>page</code>, <code>limit</code>, <code>read</code>, <code>type</code>, <code>sortBy</code>, <code>sortOrder</code>.</li></ul>
+                        </li>
+                        <li><strong>PATCH /api/notifications</strong>: Marca notificaciones como leídas.
+                            <ul><li>Body: <code>notificationIds</code> (IDs a marcar) o <code>markAllAsRead</code> (marcar todas como leídas).</li></ul>
+                        </li>
+                        <li><strong>DELETE /api/notifications</strong>: Elimina notificaciones.
+                            <ul><li>Body: <code>notificationIds</code> (IDs a eliminar) o <code>deleteAllRead</code> (eliminar todas las leídas).</li></ul>
+                        </li>
+                    </ul>
+                    
+                    <h2>5. src/app/api/notifications/[id]/route.ts</h2>
+                    <p>Este archivo maneja operaciones sobre notificaciones individuales.</p>
+                    
+                    <h3>Endpoints</h3>
+                    <ul>
+                        <li><strong>GET /api/notifications/:id</strong>: Obtiene los detalles de una notificación específica incluyendo la factura asociada.
+                            <ul><li>Solo el usuario propietario puede acceder.</li></ul>
+                        </li>
+                        <li><strong>PATCH /api/notifications/:id</strong>: Actualiza el estado de lectura de una notificación específica.
+                            <ul><li>Body: <code>read</code> (boolean).</li></ul>
+                        </li>
+                        <li><strong>DELETE /api/notifications/:id</strong>: Elimina una notificación específica.
+                            <ul><li>Solo el usuario propietario puede eliminarla.</li></ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="capitulo14.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 14: Frontend de Pagos</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="capitulo16.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 16: Notificaciones Frontend</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
