@@ -1,0 +1,2355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 1: Instalación y Configuración - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 1: Instalación y Configuración</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo1.html" class="active">Capítulo 1</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 1: Instalación y Configuración</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Instalar Visual Studio Code</li>
+                            <li>Configurar Node.js y npm</li>
+                            <li>Instalar y configurar Docker Desktop</li>
+                            <li>Crear un nuevo proyecto Next.js</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>🛠️ Herramientas</h3>
+                        <ul>
+                            <li>Visual Studio Code</li>
+                            <li>Node.js (versión LTS)</li>
+                            <li>Docker Desktop</li>
+                            <li>Next.js</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1cZAgeoiAKJmvFhJjj4KHtgBh5W1XCvaK/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>En este tutorial se instalarán y configurarán las herramientas necesarias para el entorno de desarrollo en <strong>Windows</strong> y <strong>Linux</strong>. Cubriremos la instalación de <strong>Visual Studio Code</strong>, <strong>Node.js</strong>, <strong>Docker Desktop</strong> y la creación de un nuevo proyecto Next.js usando <strong>npx</strong>.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>1. Instalación de Visual Studio Code</h2>
+                
+                <h3>En Windows</h3>
+                <ol>
+                    <li><strong>Descargar Visual Studio Code</strong>:
+                        <ul>
+                            <li>Visita la <a href="https://code.visualstudio.com/" target="_blank">página oficial de Visual Studio Code</a>.</li>
+                            <li>Haz clic en el botón <strong>"Download for Windows"</strong>.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Instalar Visual Studio Code</strong>:
+                        <ul>
+                            <li>Abre el archivo <code>.exe</code> descargado.</li>
+                            <li>Durante la instalación, asegúrate de marcar las opciones:
+                                <ul>
+                                    <li><strong>"Add to PATH"</strong> (esto permitirá ejecutar VS Code desde la terminal)</li>
+                                    <li><strong>"Register code as an editor for supported file types"</strong></li>
+                                    <li><strong>"Add Open with Code to context menu"</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Lanzar Visual Studio Code</strong>:
+                        <ul>
+                            <li>Una vez completada la instalación, abre <strong>Visual Studio Code</strong> desde el menú de inicio o ejecutando <code>code</code> en la terminal.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>En Linux (Ubuntu/Debian)</h3>
+                <p>Abre una terminal y ejecuta los siguientes comandos:</p>
+                <pre><code>sudo apt update
+sudo apt install software-properties-common apt-transport-https wget
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt update
+sudo apt install code</code></pre>
+            </div>
+
+            <div class="content-section">
+                <h2>2. Instalación de Node.js</h2>
+                
+                <h3>En Windows</h3>
+                <ol>
+                    <li><strong>Descargar Node.js</strong>:
+                        <ul>
+                            <li>Visita la <a href="https://nodejs.org/" target="_blank">página oficial de Node.js</a>.</li>
+                            <li>Descarga la versión <strong>LTS</strong> (Long-Term Support) para Windows.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Instalar Node.js</strong>:
+                        <ul>
+                            <li>Abre el archivo <code>.msi</code> descargado y sigue las instrucciones del instalador.</li>
+                            <li>Asegúrate de marcar la opción para instalar las herramientas adicionales (npm incluido).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Verificar la instalación</strong>:
+                        <pre><code>node -v
+npm -v</code></pre>
+                    </li>
+                </ol>
+
+                <h3>En Linux</h3>
+                <pre><code>curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+node -v
+npm -v</code></pre>
+            </div>
+
+            <div class="content-section">
+                <h2>3. Instalación de Docker Desktop</h2>
+                
+                <h3>En Windows</h3>
+                <ol>
+                    <li><strong>Descargar Docker Desktop</strong>:
+                        <ul>
+                            <li>Visita la <a href="https://www.docker.com/products/docker-desktop" target="_blank">página oficial de Docker Desktop</a>.</li>
+                            <li>Descarga Docker Desktop para Windows.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Instalar Docker Desktop</strong>:
+                        <ul>
+                            <li>Ejecuta el instalador descargado.</li>
+                            <li>Durante la instalación, asegúrate de habilitar <strong>WSL 2</strong> si se te solicita.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Verificar la instalación</strong>:
+                        <pre><code>docker --version
+docker-compose --version</code></pre>
+                    </li>
+                </ol>
+
+                <h3>En Linux</h3>
+                <pre><code>sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo usermod -aG docker $USER</code></pre>
+            </div>
+
+            <div class="content-section">
+                <h2>4. Creación de un Nuevo Proyecto Next.js</h2>
+                
+                <p>Una vez que tengas Node.js instalado, puedes crear un nuevo proyecto Next.js usando <code>npx</code>:</p>
+                
+                <pre><code>npx create-next-app@latest clutchpay</code></pre>
+
+                <p>Durante la configuración, selecciona las siguientes opciones:</p>
+                <ul>
+                    <li>✅ TypeScript: <strong>Sí</strong></li>
+                    <li>✅ ESLint: <strong>Sí</strong></li>
+                    <li>✅ Tailwind CSS: <strong>No</strong> (usaremos CSS personalizado)</li>
+                    <li>✅ App Router: <strong>Sí</strong></li>
+                    <li>❌ Turbopack: <strong>No</strong></li>
+                </ul>
+
+                <div class="info-box">
+                    <p><strong>💡 Nota:</strong> El App Router es la forma recomendada de crear aplicaciones en Next.js 13+. Proporciona una estructura de carpetas más intuitiva y mejores capacidades de routing.</p>
+                </div>
+
+                <h3>Estructura del Proyecto</h3>
+                <p>Una vez creado, el proyecto tendrá la siguiente estructura:</p>
+                <pre><code>clutchpay/
+├── src/
+│   └── app/
+│       ├── page.tsx
+│       ├── layout.tsx
+│       └── globals.css
+├── public/
+├── node_modules/
+├── package.json
+├── tsconfig.json
+└── next.config.js</code></pre>
+
+                <h3>Ejecutar el Proyecto</h3>
+                <pre><code>cd clutchpay
+npm run dev</code></pre>
+
+                <p>Abre tu navegador y visita <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> para ver tu aplicación Next.js en funcionamiento.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>5. Configuración Inicial del Proyecto</h2>
+                
+                <h3>Instalar dependencias adicionales</h3>
+                <p>Vamos a instalar algunas dependencias que usaremos a lo largo del proyecto:</p>
+                <pre><code>npm install prisma @prisma/client
+npm install -D typescript @types/node @types/react</code></pre>
+
+                <div class="success-box">
+                    <p><strong>✅ ¡Listo!</strong> Ahora tienes todo el entorno configurado y listo para comenzar el desarrollo.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <p>En este capítulo has aprendido a:</p>
+                <ul>
+                    <li>✓ Instalar Visual Studio Code en Windows y Linux</li>
+                    <li>✓ Configurar Node.js y npm</li>
+                    <li>✓ Instalar Docker Desktop para contenedores</li>
+                    <li>✓ Crear un nuevo proyecto Next.js con TypeScript</li>
+                    <li>✓ Configurar las dependencias iniciales</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="index.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Inicio</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo2.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 2: Creación de Base de Datos</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 10: Frontend de Facturas - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 10: Frontend de Facturas</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo10.html" class="active">Capítulo 10</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 10: Frontend de Facturas</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Crear interfaz modular para facturas</li>
+                            <li>Implementar listado con filtros</li>
+                            <li>Desarrollar formularios de creación/edición</li>
+                            <li>Añadir tema claro/oscuro</li>
+                            <li>Integrar sistema de notificaciones</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>💻 Módulos</h3>
+                        <ul>
+                            <li>dashboard/core.js</li>
+                            <li>dashboard/invoices.js</li>
+                            <li>dashboard/profile.js</li>
+                            <li>dashboard/contacts.js</li>
+                            <li>theme.js</li>
+                            <li>notifications.js</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/151mDDEO7EZVTxDuPrB5VJaKwplLPzhFu/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Desarrollo de la interfaz de usuario para gestión de facturas con tema claro/oscuro.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo10_Frontend_de_facturas.md" target="_blank">Capitulo10_Frontend_de_facturas.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Interfaz modular y escalable</li>
+                    <li>✓ Listado con filtros avanzados</li>
+                    <li>✓ Tema claro/oscuro</li>
+                    <li>✓ Sistema de notificaciones toast</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo9.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 9: Backend de Facturas</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo11.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 11: Pagos con Stripe</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 11: Backend de Pagos y Stripe - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 11: Backend de Pagos y Stripe</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo11.html" class="active">Capítulo 11</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 11: Backend de Pagos y Stripe</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Integrar Stripe Checkout</li>
+                            <li>Crear sesiones de pago</li>
+                            <li>Implementar webhooks de Stripe</li>
+                            <li>Gestionar estados de pago</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>📡 Endpoints</h3>
+                        <ul>
+                            <li>GET /api/payments</li>
+                            <li>GET /api/payments/[id]</li>
+                            <li>POST /api/payments/stripe/checkout</li>
+                            <li>GET /api/payments/stripe/session/[id]</li>
+                            <li>POST /api/payments/stripe/webhook</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>💳 Características</h3>
+                        <ul>
+                            <li>Pagos seguros con Stripe</li>
+                            <li>Múltiples monedas</li>
+                            <li>Pagos asíncronos</li>
+                            <li>Validación de webhooks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1ve8-hBIT_dlMfSAkqUxUfR04qXxBN4FC/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Integración con Stripe para procesar pagos de facturas de forma segura.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo11_Backend_de_pagos_y_stripe_basico.md" target="_blank">Capitulo11_Backend_de_pagos_y_stripe_basico.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Stripe Checkout configurado</li>
+                    <li>✓ Sesiones de pago seguras</li>
+                    <li>✓ Webhooks para eventos de pago</li>
+                    <li>✓ Soporte múltiples monedas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo10.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 10: Frontend de Facturas</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo12.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 12: Conexión con PayPal</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 12: Conexión con PayPal - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 12: Conexión con PayPal</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo12.html" class="active">Capítulo 12</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 12: Conexión con PayPal</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Integrar PayPal Payouts</li>
+                            <li>Generar recibos en PDF</li>
+                            <li>Procesar webhooks de Stripe</li>
+                            <li>Implementar distribución de fondos</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>💰 Flujo</h3>
+                        <ul>
+                            <li>1. Crear sesión de pago</li>
+                            <li>2. Stripe procesa pago</li>
+                            <li>3. Webhook notifica éxito</li>
+                            <li>4. Generar recibo PDF</li>
+                            <li>5. Transferir fondos PayPal</li>
+                            <li>6. Actualizar estado factura</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>📄 Características</h3>
+                        <ul>
+                            <li>Recibos con PDFKit</li>
+                            <li>Almacenamiento en Cloudinary</li>
+                            <li>PayPal Payouts</li>
+                            <li>Tolerancia a fallos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1gRXScOlgj24rNUSBcQ3MHsJkxaLG4OFi/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Implementación del flujo completo de pagos con distribución de fondos vía PayPal Payouts.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo12_Conexion_con_paypal.md" target="_blank">Capitulo12_Conexion_con_paypal.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Integración completa con PayPal</li>
+                    <li>✓ Generación automática de recibos</li>
+                    <li>✓ Distribución de fondos a emisores</li>
+                    <li>✓ Sistema robusto con reintentos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo11.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 11: Pagos con Stripe</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo13.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 13: Módulos Front Pagos</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 13: Módulos de Front para Pagos - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 13: Módulos de Front para Pagos</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo13.html" class="active">Capítulo 13</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 13: Módulos de Front para Pagos</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Crear módulo de gestión de pagos</li>
+                            <li>Implementar integración con Stripe Checkout</li>
+                            <li>Desarrollar consulta de estados de pago</li>
+                            <li>Añadir listado de pagos</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>💻 Archivos</h3>
+                        <ul>
+                            <li>payments.js</li>
+                            <li>dashboard/payments.js</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>🔧 Métodos</h3>
+                        <ul>
+                            <li>createCheckoutSession()</li>
+                            <li>getSessionStatus()</li>
+                            <li>getPayments()</li>
+                            <li>getPaymentById()</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1qky9tmaBxlbVod3NX29vL4LKCKkYpOmf/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Desarrollo de la clase PaymentManager para gestionar pagos desde el frontend.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo13_Modulos_de_front_para_pagos.md" target="_blank">Capitulo13_Modulos_de_front_para_pagos.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ PaymentManager completo</li>
+                    <li>✓ Integración con Stripe Checkout</li>
+                    <li>✓ Consulta de estados de pago</li>
+                    <li>✓ Listado y detalles de pagos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo12.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 12: Conexión PayPal</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo14.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 14: Frontend de Pagos</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 14: Frontend de Pagos - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 14: Frontend de Pagos</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo14.html" class="active">Capítulo 14</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 14: Frontend de Pagos</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Integrar botones de pago en facturas</li>
+                            <li>Implementar redirección a Stripe Checkout</li>
+                            <li>Manejar callbacks de pago</li>
+                            <li>Mostrar recibos de pago</li>
+                            <li>Listar historial de pagos</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>🔄 Flujo</h3>
+                        <ul>
+                            <li>1. Usuario selecciona "Pagar"</li>
+                            <li>2. Se crea sesión de Stripe</li>
+                            <li>3. Redirección a Stripe</li>
+                            <li>4. Usuario completa pago</li>
+                            <li>5. Retorno a la app</li>
+                            <li>6. Actualización y notificación</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>📊 Visualización</h3>
+                        <ul>
+                            <li>Lista de pagos</li>
+                            <li>Filtros y ordenamiento</li>
+                            <li>Descarga de recibos</li>
+                            <li>Estados visuales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1EwVtZDg7ltEgO4Tw2Q83U4XuEqvJwJJT/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Integración completa del sistema de pagos en la interfaz de usuario.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo14_Frontend_de_pagos.md" target="_blank">Capitulo14_Frontend_de_pagos.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Botones de pago integrados</li>
+                    <li>✓ Redirección a Stripe Checkout</li>
+                    <li>✓ Manejo de callbacks y estados</li>
+                    <li>✓ Visualización de recibos</li>
+                    <li>✓ Historial completo de pagos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo13.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 13: Módulos Front Pagos</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo15.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 15: Backend Notificaciones</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 15: Backend de Notificaciones - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 15: Backend de Notificaciones</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo15.html" class="active">Capítulo 15</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 15: Backend de Notificaciones</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Crear sistema de notificaciones</li>
+                            <li>Implementar envío de emails</li>
+                            <li>Desarrollar plantillas de notificación</li>
+                            <li>Añadir notificaciones automáticas</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>📡 Endpoints</h3>
+                        <ul>
+                            <li>GET /api/notifications</li>
+                            <li>PUT /api/notifications/mark-read</li>
+                            <li>DELETE /api/notifications</li>
+                            <li>GET /api/notifications/[id]</li>
+                            <li>PUT /api/notifications/[id]</li>
+                            <li>DELETE /api/notifications/[id]</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>🔔 Tipos</h3>
+                        <ul>
+                            <li>Factura emitida</li>
+                            <li>Pago recibido</li>
+                            <li>Factura cancelada</li>
+                            <li>Pago próximo a vencer</li>
+                            <li>Pago vencido</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/14llUQ7yHvnbKTSxrDJlThQ12WHn2_0FK/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Sistema completo de notificaciones in-app y por email.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo15_Backend_de_notificaciones.md" target="_blank">Capitulo15_Backend_de_notificaciones.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📧 Características</h2>
+                <ul>
+                    <li><strong>Notificaciones in-app</strong>: Sistema de notificaciones dentro de la aplicación</li>
+                    <li><strong>Emails con plantillas React</strong>: Emails profesionales usando React Email</li>
+                    <li><strong>Scheduler</strong>: Notificaciones automáticas para pagos próximos/vencidos</li>
+                    <li><strong>Limpieza automática</strong>: Eliminación de notificaciones antiguas</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Sistema completo de notificaciones</li>
+                    <li>✓ Envío de emails con Resend</li>
+                    <li>✓ Plantillas React profesionales</li>
+                    <li>✓ Scheduler para notificaciones automáticas</li>
+                    <li>✓ Gestión de estados de notificaciones</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo14.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 14: Frontend de Pagos</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo16.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 16: Notificaciones Frontend</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 16: Notificaciones en Frontend - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 16: Notificaciones en Frontend</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo16.html" class="active">Capítulo 16</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 16: Notificaciones en Frontend</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Crear módulo de notificaciones internas</li>
+                            <li>Implementar modal de notificaciones</li>
+                            <li>Añadir badge con contador</li>
+                            <li>Integrar con eventos del sistema</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>💻 Archivos</h3>
+                        <ul>
+                            <li>internal-notifications.js</li>
+                            <li>dashboard-usuario.js</li>
+                            <li>main.html</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>🔔 Funcionalidades</h3>
+                        <ul>
+                            <li>Visualización en tiempo real</li>
+                            <li>Contador de no leídas</li>
+                            <li>Marcar como leídas</li>
+                            <li>Eliminar notificaciones</li>
+                            <li>Acceso desde modal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1wc_ONUymg6GEmPO-fZ-ECPmVvMNvpKsp/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Implementación del sistema de notificaciones en la interfaz de usuario.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo16_Notificaciones_en_frontend.md" target="_blank">Capitulo16_Notificaciones_en_frontend.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>🔗 Integración</h2>
+                <p>El sistema de notificaciones se integra automáticamente con:</p>
+                <ul>
+                    <li><strong>Creación de facturas</strong>: Notifica al receptor</li>
+                    <li><strong>Cancelación de facturas</strong>: Notifica a ambas partes</li>
+                    <li><strong>Pagos completados</strong>: Notifica al emisor</li>
+                    <li><strong>Sistema de eventos global</strong>: Actualización en tiempo real</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Modal de notificaciones funcional</li>
+                    <li>✓ Badge con contador de no leídas</li>
+                    <li>✓ Marcar como leídas individualmente o todas</li>
+                    <li>✓ Eliminar notificaciones</li>
+                    <li>✓ Integración completa con eventos del sistema</li>
+                </ul>
+
+                <div class="success-box">
+                    <p><strong>🎉 ¡Felicidades!</strong> Has completado todos los capítulos de ClutchPay. Ahora tienes un sistema completo de gestión de facturas y pagos con Stripe, PayPal y notificaciones.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo15.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 15: Backend Notificaciones</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="index.html">
+                    <span class="nav-label">Volver al inicio →</span>
+                    <span class="nav-title">Índice Principal</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 2: Creación de Base de Datos - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 2: Creación de Base de Datos</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo2.html" class="active">Capítulo 2</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 2: Creación de Base de Datos</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Configurar PostgreSQL usando Docker Compose</li>
+                            <li>Implementar Prisma ORM</li>
+                            <li>Diseñar el esquema de base de datos</li>
+                            <li>Ejecutar migraciones</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>🛠️ Tecnologías</h3>
+                        <ul>
+                            <li>PostgreSQL 15</li>
+                            <li>Docker & Docker Compose</li>
+                            <li>Prisma ORM</li>
+                            <li>Variables de entorno</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>📊 Modelos</h3>
+                        <ul>
+                            <li>Usuario (User)</li>
+                            <li>Factura (Invoice)</li>
+                            <li>Pago (Payment)</li>
+                            <li>Notificación (Notification)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/17o8G4ifomvbx7ssnYtdQdjmexg0ZQOGd/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>En este capítulo configuraremos la base de datos PostgreSQL utilizando Docker y Prisma ORM para gestionar la base de datos de forma eficiente.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>1. Arquitectura del Sistema</h2>
+                <p>ClutchPay utiliza una arquitectura moderna con las siguientes tecnologías:</p>
+                <ul>
+                    <li><strong>PostgreSQL</strong>: Base de datos relacional para almacenar usuarios, facturas y pagos</li>
+                    <li><strong>Docker</strong>: Para contenedorizar PostgreSQL y facilitar el desarrollo</li>
+                    <li><strong>Prisma ORM</strong>: Para gestionar el esquema de base de datos y las migraciones</li>
+                    <li><strong>Next.js</strong>: Framework full-stack para la aplicación web</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>2. Configuración de PostgreSQL con Docker</h2>
+                
+                <h3>Crear el archivo docker-compose.yml</h3>
+                <p>Crea una carpeta <code>docker</code> en la raíz del proyecto y dentro el archivo <code>docker-compose.yml</code>:</p>
+                
+                <pre><code>services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres-data:</code></pre>
+
+                <h3>Explicación de la configuración:</h3>
+                <ul>
+                    <li><strong>image: postgres:15</strong>: Utiliza la imagen oficial de PostgreSQL versión 15</li>
+                    <li><strong>restart: always</strong>: El contenedor se reiniciará automáticamente si se detiene</li>
+                    <li><strong>environment</strong>: Variables de entorno para configurar el usuario, contraseña y nombre de la base de datos</li>
+                    <li><strong>ports</strong>: Mapea el puerto 5432 del contenedor al puerto 5432 del host</li>
+                    <li><strong>volumes</strong>: Persiste los datos en un volumen Docker</li>
+                    <li><strong>healthcheck</strong>: Verifica que PostgreSQL esté listo para aceptar conexiones</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>3. Configuración de Variables de Entorno</h2>
+                
+                <p>Crea un archivo <code>.env</code> en la raíz del proyecto:</p>
+                
+                <pre><code># Base de datos
+POSTGRES_USER=clutchpay_user
+POSTGRES_PASSWORD=clutchpay_password
+POSTGRES_DB=clutchpay_db
+
+# URL de conexión para Prisma
+DATABASE_URL="postgresql://clutchpay_user:clutchpay_password@localhost:5432/clutchpay_db?schema=public"</code></pre>
+
+                <div class="warning-box">
+                    <p><strong>⚠️ Importante:</strong> Nunca subas el archivo <code>.env</code> a tu repositorio. Añádelo al <code>.gitignore</code>.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>4. Iniciar PostgreSQL</h2>
+                
+                <p>Desde la carpeta <code>docker</code>, ejecuta:</p>
+                <pre><code>docker-compose up -d</code></pre>
+
+                <p>Verifica que el contenedor esté en ejecución:</p>
+                <pre><code>docker ps</code></pre>
+
+                <p>Para ver los logs:</p>
+                <pre><code>docker-compose logs -f postgres</code></pre>
+            </div>
+
+            <div class="content-section">
+                <h2>5. Configuración de Prisma</h2>
+                
+                <h3>Inicializar Prisma</h3>
+                <pre><code>npx prisma init</code></pre>
+
+                <p>Este comando creará:</p>
+                <ul>
+                    <li>Carpeta <code>prisma/</code> con <code>schema.prisma</code></li>
+                    <li>Archivo <code>.env</code> (si no existe)</li>
+                </ul>
+
+                <h3>Configurar el esquema de Prisma</h3>
+                <p>Edita <code>prisma/schema.prisma</code> para definir los modelos de datos. Aquí está el contenido completo que debes usar. Lee el archivo Markdown del Capítulo 2 para ver todo el esquema detallado.</p>
+
+                <div class="info-box">
+                    <p><strong>💡 Nota:</strong> El esquema completo incluye los modelos User, Invoice, Payment y Notification con todas sus relaciones.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>6. Ejecutar Migraciones</h2>
+                
+                <h3>Crear la primera migración</h3>
+                <pre><code>npx prisma migrate dev --name init</code></pre>
+
+                <p>Este comando:</p>
+                <ol>
+                    <li>Crea las tablas en la base de datos</li>
+                    <li>Genera el Prisma Client</li>
+                    <li>Guarda la migración en <code>prisma/migrations/</code></li>
+                </ol>
+
+                <h3>Generar Prisma Client</h3>
+                <pre><code>npx prisma generate</code></pre>
+
+                <h3>Abrir Prisma Studio</h3>
+                <p>Para ver y editar los datos de forma visual:</p>
+                <pre><code>npx prisma studio</code></pre>
+            </div>
+
+            <div class="content-section">
+                <h2>7. Crear el Cliente de Prisma</h2>
+                
+                <p>Crea el archivo <code>src/libs/prisma.ts</code>:</p>
+                
+                <pre><code>import { PrismaClient } from '@prisma/client'
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined
+}
+
+export const prisma = globalForPrisma.prisma ?? new PrismaClient()
+
+if (process.env.NODE_ENV !== 'production') {
+  globalForPrisma.prisma = prisma
+}</code></pre>
+
+                <p>Esta configuración evita crear múltiples instancias de Prisma Client en desarrollo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <p>En este capítulo has aprendido a:</p>
+                <ul>
+                    <li>✓ Configurar PostgreSQL con Docker Compose</li>
+                    <li>✓ Inicializar Prisma ORM en el proyecto</li>
+                    <li>✓ Diseñar el esquema de base de datos</li>
+                    <li>✓ Ejecutar migraciones y generar Prisma Client</li>
+                    <li>✓ Crear el cliente de Prisma reutilizable</li>
+                </ul>
+
+                <div class="success-box">
+                    <p><strong>✅ ¡Listo!</strong> Ahora tienes una base de datos PostgreSQL configurada y lista para usar con Prisma ORM.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo1.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 1: Instalación</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo3.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 3: API REST y Login</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 3: API REST y Login - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 3: API REST y Login</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo3.html" class="active">Capítulo 3</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 3: API REST y Login</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Configurar NextAuth.js para autenticación</li>
+                            <li>Implementar validaciones con Zod</li>
+                            <li>Crear endpoints de registro e inicio de sesión</li>
+                            <li>Implementar cifrado de contraseñas</li>
+                            <li>Configurar JWT y sesiones</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>🔐 Características</h3>
+                        <ul>
+                            <li>Autenticación con email y contraseña</li>
+                            <li>Validación de datos con Zod</li>
+                            <li>Cifrado con bcrypt</li>
+                            <li>Tokens JWT personalizados</li>
+                            <li>Protección de rutas API</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1BTh_bb3FTOXluSeu1g4q2U1_BQKS57rX/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>En este capítulo implementaremos el sistema completo de autenticación con NextAuth y validaciones robustas.</p>
+                
+                <p>Ver el archivo <a href="../tutoriales/Capitulo3_Api_rest_y_login.md" target="_blank">Capitulo3_Api_rest_y_login.md</a> para el contenido completo y detallado.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>1. Instalación de Dependencias</h2>
+                <pre><code>npm install next-auth bcryptjs zod libphonenumber-js
+npm install -D @types/bcryptjs</code></pre>
+            </div>
+
+            <div class="content-section">
+                <h2>2. Cliente de Prisma</h2>
+                <p>Asegúrate de tener configurado el cliente de Prisma en <code>src/libs/prisma.ts</code> como se explicó en el Capítulo 2.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>3. Validaciones con Zod</h2>
+                <p>Las validaciones son esenciales para garantizar que los datos del usuario sean correctos y seguros.</p>
+                
+                <h3>Validaciones principales:</h3>
+                <ul>
+                    <li><strong>Email</strong>: Formato válido y normalizado</li>
+                    <li><strong>Contraseña</strong>: Mínimo 8 caracteres, mayúsculas, minúsculas, números y símbolos</li>
+                    <li><strong>Teléfono</strong>: Validación y formateo internacional</li>
+                    <li><strong>Nombre</strong>: Sin números ni caracteres especiales</li>
+                </ul>
+
+                <div class="info-box">
+                    <p><strong>💡 Nota:</strong> Revisa el archivo Markdown del Capítulo 3 para ver todos los schemas de validación completos.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>4. Configuración de NextAuth</h2>
+                
+                <h3>Proveedor de Credenciales</h3>
+                <p>NextAuth soporta múltiples proveedores. Usaremos el proveedor de credenciales para permitir login con email y contraseña.</p>
+
+                <h3>Flujo de autenticación:</h3>
+                <ol>
+                    <li>Usuario envía email y contraseña</li>
+                    <li>Se validan los datos</li>
+                    <li>Se busca el usuario en la base de datos</li>
+                    <li>Se compara la contraseña con el hash almacenado</li>
+                    <li>Se genera un token JWT con información del usuario</li>
+                    <li>Se crea una sesión</li>
+                </ol>
+            </div>
+
+            <div class="content-section">
+                <h2>5. Endpoint de Registro</h2>
+                
+                <h3>Archivo: <code>src/app/api/auth/register/route.ts</code></h3>
+                
+                <p>El endpoint de registro realiza las siguientes operaciones:</p>
+                <ol>
+                    <li>Valida los datos de entrada con Zod</li>
+                    <li>Verifica que el email no esté registrado</li>
+                    <li>Cifra la contraseña con bcrypt</li>
+                    <li>Crea el usuario en la base de datos</li>
+                    <li>Retorna respuesta de éxito</li>
+                </ol>
+
+                <div class="warning-box">
+                    <p><strong>⚠️ Seguridad:</strong> Nunca retornes la contraseña cifrada al cliente. Solo envía el ID, nombre y email del usuario creado.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>6. Endpoints de NextAuth</h2>
+                
+                <h3>Archivo: <code>src/app/api/auth/[...nextauth]/route.ts</code></h3>
+                
+                <p>Este archivo maneja todos los endpoints de NextAuth:</p>
+                <ul>
+                    <li><code>/api/auth/signin</code> - Página de inicio de sesión</li>
+                    <li><code>/api/auth/signout</code> - Cerrar sesión</li>
+                    <li><code>/api/auth/session</code> - Obtener sesión actual</li>
+                    <li><code>/api/auth/csrf</code> - Token CSRF</li>
+                    <li><code>/api/auth/callback</code> - Callbacks de proveedores</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>7. Variables de Entorno</h2>
+                
+                <p>Añade al archivo <code>.env</code>:</p>
+                <pre><code># NextAuth
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=tu-secreto-super-seguro-aqui
+
+# Base de datos (ya configurado)
+DATABASE_URL="postgresql://..."</code></pre>
+
+                <div class="info-box">
+                    <p><strong>💡 Generar NEXTAUTH_SECRET:</strong> Puedes generar un secreto seguro con: <code>openssl rand -base64 32</code></p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>8. Tipos TypeScript</h2>
+                
+                <h3>Extender tipos de NextAuth</h3>
+                <p>Crea el archivo <code>src/types/next-auth.d.ts</code> para añadir propiedades personalizadas:</p>
+                
+                <pre><code>import NextAuth from "next-auth"
+
+declare module "next-auth" {
+  interface User {
+    id: string
+    email: string
+    firstName: string
+    lastName: string
+    role: string
+  }
+
+  interface Session {
+    user: User
+  }
+}</code></pre>
+            </div>
+
+            <div class="content-section">
+                <h2>9. Probar la Autenticación</h2>
+                
+                <h3>Registro de usuario:</h3>
+                <pre><code>POST /api/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "Juan",
+  "lastName": "Pérez",
+  "email": "juan@example.com",
+  "password": "Password123!",
+  "phone": "+34666777888"
+}</code></pre>
+
+                <h3>Inicio de sesión:</h3>
+                <pre><code>POST /api/auth/signin
+Content-Type: application/json
+
+{
+  "email": "juan@example.com",
+  "password": "Password123!"
+}</code></pre>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <p>En este capítulo has aprendido a:</p>
+                <ul>
+                    <li>✓ Configurar NextAuth.js con proveedor de credenciales</li>
+                    <li>✓ Implementar validaciones robustas con Zod</li>
+                    <li>✓ Crear endpoints de registro e inicio de sesión</li>
+                    <li>✓ Cifrar contraseñas con bcrypt</li>
+                    <li>✓ Configurar JWT y sesiones personalizadas</li>
+                    <li>✓ Extender tipos de TypeScript para NextAuth</li>
+                </ul>
+
+                <div class="success-box">
+                    <p><strong>✅ ¡Listo!</strong> Ahora tienes un sistema de autenticación completo y seguro.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo2.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 2: Base de Datos</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo4.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 4: Frontend de Login</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 4: Frontend de Login - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 4: Frontend de Login</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo4.html" class="active">Capítulo 4</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 4: Frontend de Login</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Crear formularios de registro e inicio de sesión</li>
+                            <li>Implementar validaciones en tiempo real</li>
+                            <li>Integrar con la API de autenticación</li>
+                            <li>Aplicar estilos y diseño responsive</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>💻 Archivos</h3>
+                        <ul>
+                            <li>validaciones.js</li>
+                            <li>auth.js</li>
+                            <li>auth-register.js</li>
+                            <li>auth-login.js</li>
+                            <li>style.css</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1Pc8kiXbZaYcWCwVzkARTC65ulXRxo_YJ/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>En este capítulo desarrollaremos el frontend para autenticación con formularios, validaciones y estilos profesionales.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo4_Frontend_de_login.md" target="_blank">Capitulo4_Frontend_de_login.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Formularios de registro e inicio de sesión</li>
+                    <li>✓ Validaciones en tiempo real del lado del cliente</li>
+                    <li>✓ Integración con API de autenticación</li>
+                    <li>✓ Diseño responsive y profesional</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo3.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 3: API REST y Login</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo5.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 5: Backend de Usuarios</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 5: Backend de Usuarios - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 5: Backend de Usuarios</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo5.html" class="active">Capítulo 5</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 5: Backend de Usuarios</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Crear endpoints RESTful para usuarios</li>
+                            <li>Implementar sistema de contactos</li>
+                            <li>Añadir validaciones y autorización</li>
+                            <li>Gestionar perfiles de usuario</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>📡 Endpoints</h3>
+                        <ul>
+                            <li>GET /api/users</li>
+                            <li>GET /api/users/[id]</li>
+                            <li>PUT /api/users/[id]</li>
+                            <li>GET /api/users/[id]/contacts</li>
+                            <li>POST /api/users/[id]/contacts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1pai1iow8CWJIYfomDnTJhaFKPRc5dq4g/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Desarrollo de endpoints para gestión de perfiles y contactos de usuarios.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo5_Backend_de_usuarios.md" target="_blank">Capitulo5_Backend_de_usuarios.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Endpoints CRUD para usuarios</li>
+                    <li>✓ Sistema de contactos</li>
+                    <li>✓ Paginación y filtros</li>
+                    <li>✓ Validaciones y autorización</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo4.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 4: Frontend de Login</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo6.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 6: Frontend de Usuarios</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 6: Frontend de Usuarios - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 6: Frontend de Usuarios</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo6.html" class="active">Capítulo 6</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 6: Frontend de Usuarios</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Crear dashboard de usuario</li>
+                            <li>Implementar edición de perfil</li>
+                            <li>Desarrollar sistema de contactos</li>
+                            <li>Añadir traducciones (i18n)</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>💻 Archivos</h3>
+                        <ul>
+                            <li>main.html</li>
+                            <li>dashboard_usuario.js</li>
+                            <li>dashboard_usuario.css</li>
+                            <li>i18n.js</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1h3pcOMqv2crFC6WtW0MqGpBwOUpc_lJb/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Implementación del dashboard de usuario con gestión de perfil y contactos.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo6_Frontend_de_usuarios.md" target="_blank">Capitulo6_Frontend_de_usuarios.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Dashboard interactivo</li>
+                    <li>✓ Gestión de perfil con avatar</li>
+                    <li>✓ Sistema de contactos</li>
+                    <li>✓ Soporte multiidioma</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo5.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 5: Backend de Usuarios</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo7.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 7: Testing con Vitest</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 7: Testing usando Vitest - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 7: Testing usando Vitest</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo7.html" class="active">Capítulo 7</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 7: Testing usando Vitest</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Configurar Vitest para testing</li>
+                            <li>Crear pruebas unitarias e integración</li>
+                            <li>Testear validaciones y autenticación</li>
+                            <li>Implementar pruebas de API</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>🧪 Archivos</h3>
+                        <ul>
+                            <li>vitest.config.mts</li>
+                            <li>tests/setup.ts</li>
+                            <li>tests/libs/auth.test.ts</li>
+                            <li>tests/libs/validations/</li>
+                            <li>tests/api/users/</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1ZpAc6rTvYDtspJ2K7KzrqjDR_ePoguqB/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Implementación de pruebas automatizadas para garantizar la calidad del código.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo7_Testing_usando_vitest.md" target="_blank">Capitulo7_Testing_usando_vitest.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Configuración de Vitest</li>
+                    <li>✓ Pruebas unitarias</li>
+                    <li>✓ Pruebas de integración</li>
+                    <li>✓ Cobertura de código</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo6.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 6: Frontend de Usuarios</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo8.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 8: API Cloudinary</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 8: Configuración API Cloudinary - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 8: Configuración API Cloudinary</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo8.html" class="active">Capítulo 8</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 8: Configuración API Cloudinary</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Configurar Cloudinary</li>
+                            <li>Implementar funciones para subir/eliminar imágenes</li>
+                            <li>Validar imágenes base64</li>
+                            <li>Integrar con perfiles de usuario</li>
+                            <li>Crear pruebas unitarias</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>⚙️ Funcionalidades</h3>
+                        <ul>
+                            <li>uploadImage - Subir imágenes</li>
+                            <li>deleteImage - Eliminar imágenes</li>
+                            <li>extractPublicId - Extraer ID</li>
+                            <li>uploadPDF - Subir PDFs</li>
+                            <li>deletePDF - Eliminar PDFs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1MwWlUK_pl6q0oXbP_nZHsaJsYGOUQA-9/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Implementación de Cloudinary para la gestión de archivos multimedia en el proyecto.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo8_Configuracion_API_Cloudinary.md" target="_blank">Capitulo8_Configuracion_API_Cloudinary.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ Configuración de Cloudinary</li>
+                    <li>✓ Subida y eliminación de imágenes</li>
+                    <li>✓ Subida y eliminación de PDFs</li>
+                    <li>✓ Transformaciones automáticas</li>
+                    <li>✓ Pruebas unitarias</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo7.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 7: Testing</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo9.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 9: Backend de Facturas</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 9: Backend de Facturas - ClutchPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Capítulo 9: Backend de Facturas</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <a href="../tutoriales/Capitulo9.html" class="active">Capítulo 9</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Volver al índice</a>
+        </div>
+
+        <div class="chapter-content">
+            <div class="chapter-header">
+                <h1>Capítulo 9: Backend de Facturas</h1>
+                <div class="chapter-meta">
+                    <div class="meta-item">
+                        <h3>🎯 Objetivos</h3>
+                        <ul>
+                            <li>Crear modelo de factura en Prisma</li>
+                            <li>Implementar CRUD de facturas</li>
+                            <li>Integrar Cloudinary para PDFs</li>
+                            <li>Validar datos con Zod</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>📡 Endpoints</h3>
+                        <ul>
+                            <li>GET /api/invoices</li>
+                            <li>POST /api/invoices</li>
+                            <li>GET /api/invoices/[id]</li>
+                            <li>PUT /api/invoices/[id]</li>
+                            <li>DELETE /api/invoices/[id]</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <h3>📋 Estados</h3>
+                        <ul>
+                            <li>PENDING - Pendiente</li>
+                            <li>PAID - Pagada</li>
+                            <li>OVERDUE - Vencida</li>
+                            <li>CANCELED - Cancelada</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1yLY1gJ5-hidYi6tph8oSwSJVF0UphdNo/view" target="_blank" class="video-btn">
+                ▶️ Ver Video Tutorial
+            </a>
+
+            <div class="content-section">
+                <h2>📖 Introducción</h2>
+                <p>Implementación completa del sistema de gestión de facturas con almacenamiento en Cloudinary.</p>
+                <p>Ver el archivo <a href="../tutoriales/Capitulo9_Backend_de_facturas.md" target="_blank">Capitulo9_Backend_de_facturas.md</a> para el contenido completo.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>📝 Resumen</h2>
+                <ul>
+                    <li>✓ CRUD completo de facturas</li>
+                    <li>✓ Almacenamiento de PDFs en Cloudinary</li>
+                    <li>✓ Sistema de estados de factura</li>
+                    <li>✓ Filtros y paginación</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <div class="prev">
+                <a href="../tutoriales/Capitulo8.html">
+                    <span class="nav-label">← Anterior</span>
+                    <span class="nav-title">Capítulo 8: API Cloudinary</span>
+                </a>
+            </div>
+            <div class="next">
+                <a href="../tutoriales/Capitulo10.html">
+                    <span class="nav-label">Siguiente →</span>
+                    <span class="nav-title">Capítulo 10: Frontend de Facturas</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClutchPay - Guía de Desarrollo Completa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 ClutchPay</h1>
+            <p class="subtitle">Guía de Desarrollo Completa</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html" class="active">Inicio</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Bienvenido a ClutchPay</h2>
+            <p>Esta página consiste en una guía estructurada para la realización de un proyecto con pasarela de pago PayPal usando Stripe y Next. Basándose en el proyecto académico <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a>.</p>
+            <p>Un sistema completo de gestión de facturas y pagos desarrollado con Next.js, PostgreSQL, Prisma, Stripe y PayPal.</p>
+        </section>
+
+        <section class="parts">
+            <div class="part">
+                <h2>📦 Parte I: Configuración Inicial</h2>
+                <div class="chapters">
+                    <a href="../tutoriales/Capitulo1.html" class="chapter-card">
+                        <h3>Capítulo 1: Instalación y Configuración</h3>
+                        <p>Configuración del entorno de desarrollo, instalación de herramientas y creación del proyecto Next.js</p>
+                        <span class="tools">🛠️ VS Code, Node.js, Docker, Next.js</span>
+                    </a>
+                    <a href="../tutoriales/Capitulo2.html" class="chapter-card">
+                        <h3>Capítulo 2: Creación de Base de Datos</h3>
+                        <p>Configuración de PostgreSQL con Docker y diseño del esquema con Prisma ORM</p>
+                        <span class="tools">🗄️ PostgreSQL, Docker Compose, Prisma</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>🔐 Parte II: Autenticación</h2>
+                <div class="chapters">
+                    <a href="../tutoriales/Capitulo3.html" class="chapter-card">
+                        <h3>Capítulo 3: API REST y Login</h3>
+                        <p>Sistema completo de autenticación con NextAuth, validaciones y JWT</p>
+                        <span class="tools">🔑 NextAuth.js, Zod, bcrypt, JWT</span>
+                    </a>
+                    <a href="../tutoriales/Capitulo4.html" class="chapter-card">
+                        <h3>Capítulo 4: Frontend de Login</h3>
+                        <p>Desarrollo de formularios de autenticación con validaciones en tiempo real</p>
+                        <span class="tools">💻 HTML5, CSS3, JavaScript ES6+</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>👥 Parte III: Gestión de Usuarios</h2>
+                <div class="chapters">
+                    <a href="../tutoriales/Capitulo5.html" class="chapter-card">
+                        <h3>Capítulo 5: Backend de Usuarios</h3>
+                        <p>Endpoints RESTful para gestión de perfiles y sistema de contactos</p>
+                        <span class="tools">📡 REST API, Validaciones, Autorización</span>
+                    </a>
+                    <a href="../tutoriales/Capitulo6.html" class="chapter-card">
+                        <h3>Capítulo 6: Frontend de Usuarios</h3>
+                        <p>Dashboard interactivo con gestión de perfil, contactos e internacionalización</p>
+                        <span class="tools">🎨 Dashboard, i18n, Módulos JS</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>🧪 Parte IV: Testing</h2>
+                <div class="chapters">
+                    <a href="../tutoriales/Capitulo7.html" class="chapter-card">
+                        <h3>Capítulo 7: Testing usando Vitest</h3>
+                        <p>Implementación de pruebas unitarias e integración para garantizar calidad</p>
+                        <span class="tools">✅ Vitest, Testing Library</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>☁️ Parte V: Cloudinary</h2>
+                <div class="chapters">
+                    <a href="../tutoriales/Capitulo8.html" class="chapter-card">
+                        <h3>Capítulo 8: Configuración API Cloudinary</h3>
+                        <p>Gestión de archivos multimedia y almacenamiento en la nube</p>
+                        <span class="tools">📦 Cloudinary, Base64, Transformaciones</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>📄 Parte VI: Sistema de Facturas</h2>
+                <div class="chapters">
+                    <a href="../tutoriales/Capitulo9.html" class="chapter-card">
+                        <h3>Capítulo 9: Backend de Facturas</h3>
+                        <p>Sistema completo de gestión de facturas con CRUD y almacenamiento de PDFs</p>
+                        <span class="tools">📋 Prisma, Cloudinary, Estados de factura</span>
+                    </a>
+                    <a href="../tutoriales/Capitulo10.html" class="chapter-card">
+                        <h3>Capítulo 10: Frontend de Facturas</h3>
+                        <p>Interfaz modular con tema claro/oscuro y sistema de notificaciones</p>
+                        <span class="tools">🎨 Módulos, Temas, Toasts</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>💳 Parte VII: Sistema de Pagos</h2>
+                <div class="chapters">
+                    <a href="../tutoriales/Capitulo11.html" class="chapter-card">
+                        <h3>Capítulo 11: Backend de Pagos y Stripe Básico</h3>
+                        <p>Integración con Stripe para procesar pagos de forma segura</p>
+                        <span class="tools">💰 Stripe Checkout, Webhooks</span>
+                    </a>
+                    <a href="../tutoriales/Capitulo12.html" class="chapter-card">
+                        <h3>Capítulo 12: Conexión con PayPal</h3>
+                        <p>Flujo completo con distribución de fondos y generación de recibos</p>
+                        <span class="tools">💸 PayPal Payouts, PDFKit</span>
+                    </a>
+                    <a href="../tutoriales/Capitulo13.html" class="chapter-card">
+                        <h3>Capítulo 13: Módulos de Front para Pagos</h3>
+                        <p>PaymentManager para gestión de pagos desde el cliente</p>
+                        <span class="tools">⚙️ JavaScript Modules, Stripe JS</span>
+                    </a>
+                    <a href="../tutoriales/Capitulo14.html" class="chapter-card">
+                        <h3>Capítulo 14: Frontend de Pagos</h3>
+                        <p>Integración completa del sistema de pagos en la UI</p>
+                        <span class="tools">🔄 Stripe Checkout, Callbacks, Recibos</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="part">
+                <h2>🔔 Parte VIII: Sistema de Notificaciones</h2>
+                <div class="chapters">
+                    <a href="../tutoriales/Capitulo15.html" class="chapter-card">
+                        <h3>Capítulo 15: Backend de Notificaciones</h3>
+                        <p>Sistema completo de notificaciones in-app y por email</p>
+                        <span class="tools">📧 Resend, Plantillas React, Scheduler</span>
+                    </a>
+                    <a href="../tutoriales/Capitulo16.html" class="chapter-card">
+                        <h3>Capítulo 16: Notificaciones en Frontend</h3>
+                        <p>Modal de notificaciones con contador en tiempo real</p>
+                        <span class="tools">🔔 Eventos, Modal, Badge</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack">
+            <h2>🚀 Tecnologías Utilizadas</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>Next.js</li>
+                        <li>PostgreSQL</li>
+                        <li>Prisma ORM</li>
+                        <li>NextAuth.js</li>
+                        <li>Zod</li>
+                        <li>bcryptjs</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>HTML5 / CSS3</li>
+                        <li>JavaScript ES6+</li>
+                        <li>Sistema modular</li>
+                        <li>i18n</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Servicios externos</h3>
+                    <ul>
+                        <li>Stripe</li>
+                        <li>PayPal</li>
+                        <li>Cloudinary</li>
+                        <li>Resend</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Testing & DevOps</h3>
+                    <ul>
+                        <li>Vitest</li>
+                        <li>@testing-library</li>
+                        <li>Docker</li>
+                        <li>Docker Compose</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📚 Material educativo para aprender desarrollo full-stack moderno</p>
+            <p>Basado en el proyecto <a href="https://github.com/GCousido/ClutchPay" target="_blank">ClutchPay</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+
