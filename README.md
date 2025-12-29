@@ -10,7 +10,7 @@ Esta guía te llevará paso a paso desde la instalación inicial hasta la implem
 
 ## 📋 Tabla de Contenidos
 
-### **Parte I: Configuración Inicial**s
+### **Parte I: Configuración Inicial**
 - [Capítulo 1: Instalación y Configuración](#capítulo-1-instalación-y-configuración)
 - [Capítulo 2: Creación de Base de Datos](#capítulo-2-creación-de-base-de-datos)
 
