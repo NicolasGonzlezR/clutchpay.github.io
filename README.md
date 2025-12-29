@@ -70,7 +70,7 @@ En este capítulo inicial aprenderás a configurar tu entorno de desarrollo en W
 
 ## Capítulo 2: Creación de Base de Datos
 
-[Ver documentación completa →](Mds/Capitulo2_Creacion_de_base_de_datos.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo2_Creacion_de_base_de_datos.md)
 
 ### 📖 Contenido
 Configuración de PostgreSQL con Docker y Prisma ORM para gestionar la base de datos.
@@ -99,7 +99,7 @@ Configuración de PostgreSQL con Docker y Prisma ORM para gestionar la base de d
 
 ## Capítulo 3: API REST y Login
 
-[Ver documentación completa →](Mds/Capitulo3_Api_rest_y_login.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo3_Api_rest_y_login.md)
 
 ### 📖 Contenido
 Implementación del sistema completo de autenticación con NextAuth y validaciones.
@@ -124,7 +124,7 @@ Implementación del sistema completo de autenticación con NextAuth y validacion
 
 ## Capítulo 4: Frontend de Login
 
-[Ver documentación completa →](Mds/Capitulo4_Frontend_de_login.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo4_Frontend_de_login.md)
 
 ### 📖 Contenido
 Desarrollo del frontend para autenticación con formularios, validaciones y estilos.
@@ -148,7 +148,7 @@ Desarrollo del frontend para autenticación con formularios, validaciones y esti
 
 ## Capítulo 5: Backend de Usuarios
 
-[Ver documentación completa →](Mds/Capitulo5_Backend_de_usuarios.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo5_Backend_de_usuarios.md)
 
 ### 📖 Contenido
 Desarrollo de endpoints para gestión de perfiles y contactos de usuarios.
@@ -172,7 +172,7 @@ Desarrollo de endpoints para gestión de perfiles y contactos de usuarios.
 
 ## Capítulo 6: Frontend de Usuarios
 
-[Ver documentación completa →](Mds/Capitulo6_Frontend_de_usuarios.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo6_Frontend_de_usuarios.md)
 
 ### 📖 Contenido
 Implementación del dashboard de usuario con gestión de perfil y contactos.
@@ -195,7 +195,7 @@ Implementación del dashboard de usuario con gestión de perfil y contactos.
 
 ## Capítulo 7: Testing usando Vitest
 
-[Ver documentación completa →](Mds/Capitulo7_Testing_usando_vitest.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo7_Testing_usando_vitest.md)
 
 ### 📖 Contenido
 Implementación de pruebas automatizadas para garantizar la calidad del código.
@@ -263,7 +263,7 @@ Implementación de Cloudinary para la gestión de archivos multimedia en el proy
 
 ## Capítulo 9: Backend de Facturas
 
-[Ver documentación completa →](Mds/Capitulo9_Backend_de_facturas.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo9_Backend_de_facturas.md)
 
 ### 📖 Contenido
 Implementación completa del sistema de gestión de facturas con almacenamiento en Cloudinary.
@@ -293,7 +293,7 @@ Implementación completa del sistema de gestión de facturas con almacenamiento 
 
 ## Capítulo 10: Frontend de Facturas
 
-[Ver documentación completa →](Mds/Capitulo10_Frontend_de_facturas.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo10_Frontend_de_facturas.md)
 
 ### 📖 Contenido
 Desarrollo de la interfaz de usuario para gestión de facturas con tema claro/oscuro.
@@ -319,7 +319,7 @@ Desarrollo de la interfaz de usuario para gestión de facturas con tema claro/os
 
 ## Capítulo 11: Backend de Pagos y Stripe Básico
 
-[Ver documentación completa →](Mds/Capitulo11_Backend_de_pagos_y_stripe_basico.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo11_Backend_de_pagos_y_stripe_basico.md)
 
 ### 📖 Contenido
 Integración con Stripe para procesar pagos de facturas de forma segura.
@@ -349,7 +349,7 @@ Integración con Stripe para procesar pagos de facturas de forma segura.
 
 ## Capítulo 12: Conexión con PayPal
 
-[Ver documentación completa →](Mds/Capitulo12_Conexion_con_paypal.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo12_Conexion_con_paypal.md)
 
 ### 📖 Contenido
 Implementación del flujo completo de pagos con distribución de fondos vía PayPal Payouts.
@@ -380,7 +380,7 @@ Implementación del flujo completo de pagos con distribución de fondos vía Pay
 
 ## Capítulo 13: Módulos de Front para Pagos
 
-[Ver documentación completa →](Mds/Capitulo13_Modulos_de_front_para_pagos.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo13_Modulos_de_front_para_pagos.md)
 
 ### 📖 Contenido
 Desarrollo de la clase PaymentManager para gestionar pagos desde el frontend.
@@ -407,7 +407,7 @@ Desarrollo de la clase PaymentManager para gestionar pagos desde el frontend.
 
 ## Capítulo 14: Frontend de Pagos
 
-[Ver documentación completa →](Mds/Capitulo14_Frontend_de_pagos.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo14_Frontend_de_pagos.md)
 
 ### 📖 Contenido
 Integración completa del sistema de pagos en la interfaz de usuario.
@@ -439,7 +439,7 @@ Integración completa del sistema de pagos en la interfaz de usuario.
 
 ## Capítulo 15: Backend de Notificaciones
 
-[Ver documentación completa →](Mds/Capitulo15_Backend_de_notificaciones.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo15_Backend_de_notificaciones.md)
 
 ### 📖 Contenido
 Sistema completo de notificaciones in-app y por email.
@@ -477,7 +477,7 @@ Sistema completo de notificaciones in-app y por email.
 
 ## Capítulo 16: Notificaciones en Frontend
 
-[Ver documentación completa →](Mds/Capitulo16_Notificaciones_en_frontend.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo16_Notificaciones_en_frontend.md)
 
 ### 📖 Contenido
 Implementación del sistema de notificaciones en la interfaz de usuario.
