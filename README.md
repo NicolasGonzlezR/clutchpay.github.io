@@ -61,9 +61,7 @@ En este capítulo inicial aprenderás a configurar tu entorno de desarrollo en W
 - Next.js
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/1Gta6OvnkbvvTZbDcP0y0aZWiM9LYR-Ks/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_2-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1Gta6OvnkbvvTZbDcP0y0aZWiM9LYR-Ks/view)
 
 ---
 
@@ -93,9 +91,7 @@ Configuración de PostgreSQL con Docker y Prisma ORM para gestionar la base de d
 - Notificación (Notification)
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_2/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_2-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_2/view)
 
 ---
 
@@ -121,9 +117,7 @@ Implementación del sistema completo de autenticación con NextAuth y validacion
 - Protección de rutas API
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_3/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_3-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_3/view)
 
 ---
 
@@ -148,9 +142,7 @@ Desarrollo del frontend para autenticación con formularios, validaciones y esti
 - `style.css` - Estilos globales
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_4/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_4-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_4/view)
 
 ---
 
@@ -175,9 +167,7 @@ Desarrollo de endpoints para gestión de perfiles y contactos de usuarios.
 - `POST /api/users/[id]/contacts` - Añadir contacto
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_5/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_5-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_5/view)
 
 ---
 
@@ -201,9 +191,7 @@ Implementación del dashboard de usuario con gestión de perfil y contactos.
 - `i18n.js` - Sistema de traducciones
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_6/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_6-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_6/view)
 
 ---
 
@@ -228,9 +216,7 @@ Implementación de pruebas automatizadas para garantizar la calidad del código.
 - `tests/api/users/` - Pruebas de endpoints de usuarios
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_7/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_7-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_7/view)
 
 ---
 
@@ -261,9 +247,7 @@ Implementación completa del sistema de gestión de facturas con almacenamiento 
 - `CANCELED` - Cancelada
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_9/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_9-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_9/view)
 
 ---
 
@@ -290,9 +274,7 @@ Desarrollo de la interfaz de usuario para gestión de facturas con tema claro/os
 - `notifications.js` - Sistema de toasts
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_10/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_1-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1Gta6OvnkbvvTZbDcP0y0aZWiM9LYR-Ks/view)
 
 ---
 
@@ -323,9 +305,7 @@ Integración con Stripe para procesar pagos de facturas de forma segura.
 - Validación de webhooks
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_11/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_11-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_11/view)
 
 ---
 
@@ -357,9 +337,7 @@ Implementación del flujo completo de pagos con distribución de fondos vía Pay
 - Tolerancia a fallos y reintentos
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_12/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_12-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_12/view)
 
 ---
 
@@ -387,9 +365,7 @@ Desarrollo de la clase PaymentManager para gestionar pagos desde el frontend.
 - `getPaymentById()` - Obtener detalle de pago
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_13/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_13-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_13/view)
 
 ---
 
@@ -422,9 +398,7 @@ Integración completa del sistema de pagos en la interfaz de usuario.
 - Estados visuales de pago
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_14/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_14-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_14/view)
 
 ---
 
@@ -463,9 +437,7 @@ Sistema completo de notificaciones in-app y por email.
 - Limpieza de notificaciones antiguas
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_15/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_15-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_15/view)
 
 ---
 
@@ -501,9 +473,7 @@ Implementación del sistema de notificaciones en la interfaz de usuario.
 - Sistema de eventos global
 
 ### 🎥 Video Tutorial
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_16/preview" width="640" height="480" allow="autoplay" frameborder="0"></iframe>
-</div>
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_16-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_16/view)
 
 ---
 
