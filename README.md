@@ -43,7 +43,7 @@ Esta guía te llevará paso a paso desde la instalación inicial hasta la implem
 
 ## Capítulo 1: Instalación y Configuración
 
-[Ver documentación completa →](Capitulo1_Instalacion.md)
+[Ver documentación completa →](Mds/Capitulo1_Instalacion.md)
 
 ### 📖 Contenido
 En este capítulo inicial aprenderás a configurar tu entorno de desarrollo en Windows y Linux.
