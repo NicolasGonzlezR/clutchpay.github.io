@@ -10,7 +10,7 @@ Esta guía te llevará paso a paso desde la instalación inicial hasta la implem
 
 ## 📋 Tabla de Contenidos
 
-### **Parte I: Configuración Inicial**
+### **Parte I: Configuración Inicial**s
 - [Capítulo 1: Instalación y Configuración](#capítulo-1-instalación-y-configuración)
 - [Capítulo 2: Creación de Base de Datos](#capítulo-2-creación-de-base-de-datos)
 
@@ -25,17 +25,21 @@ Esta guía te llevará paso a paso desde la instalación inicial hasta la implem
 ### **Parte IV: Testing**
 - [Capítulo 7: Testing usando Vitest](#capítulo-7-testing-usando-vitest)
 
-### **Parte V: Sistema de Facturas**
+### **Parte V: Cloudinary**
+- [Capítulo 8: Configuración API Cloudinary](#capítulo-8-configuración-api-cloudinary)
+
+
+### **Parte VI: Sistema de Facturas**
 - [Capítulo 9: Backend de Facturas](#capítulo-9-backend-de-facturas)
 - [Capítulo 10: Frontend de Facturas](#capítulo-10-frontend-de-facturas)
 
-### **Parte VI: Sistema de Pagos**
+### **Parte VII: Sistema de Pagos**
 - [Capítulo 11: Backend de Pagos y Stripe Básico](#capítulo-11-backend-de-pagos-y-stripe-básico)
 - [Capítulo 12: Conexión con PayPal](#capítulo-12-conexión-con-paypal)
 - [Capítulo 13: Módulos de Front para Pagos](#capítulo-13-módulos-de-front-para-pagos)
 - [Capítulo 14: Frontend de Pagos](#capítulo-14-frontend-de-pagos)
 
-### **Parte VII: Sistema de Notificaciones**
+### **Parte VIII: Sistema de Notificaciones**
 - [Capítulo 15: Backend de Notificaciones](#capítulo-15-backend-de-notificaciones)
 - [Capítulo 16: Notificaciones en Frontend](#capítulo-16-notificaciones-en-frontend)
 
@@ -61,8 +65,7 @@ En este capítulo inicial aprenderás a configurar tu entorno de desarrollo en W
 - Next.js
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_2-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1Gta6OvnkbvvTZbDcP0y0aZWiM9LYR-Ks/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_1-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1cZAgeoiAKJmvFhJjj4KHtgBh5W1XCvaK/view)
 ---
 
 ## Capítulo 2: Creación de Base de Datos
@@ -91,8 +94,7 @@ Configuración de PostgreSQL con Docker y Prisma ORM para gestionar la base de d
 - Notificación (Notification)
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_2-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_2/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_2-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/17o8G4ifomvbx7ssnYtdQdjmexg0ZQOGd/view)
 ---
 
 ## Capítulo 3: API REST y Login
@@ -117,8 +119,7 @@ Implementación del sistema completo de autenticación con NextAuth y validacion
 - Protección de rutas API
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_3-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_3/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_3-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1BTh_bb3FTOXluSeu1g4q2U1_BQKS57rX/view)
 ---
 
 ## Capítulo 4: Frontend de Login
@@ -142,8 +143,7 @@ Desarrollo del frontend para autenticación con formularios, validaciones y esti
 - `style.css` - Estilos globales
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_4-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_4/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_4-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1Pc8kiXbZaYcWCwVzkARTC65ulXRxo_YJ/view)
 ---
 
 ## Capítulo 5: Backend de Usuarios
@@ -167,8 +167,7 @@ Desarrollo de endpoints para gestión de perfiles y contactos de usuarios.
 - `POST /api/users/[id]/contacts` - Añadir contacto
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_5-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_5/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_5-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1pai1iow8CWJIYfomDnTJhaFKPRc5dq4g/view)
 ---
 
 ## Capítulo 6: Frontend de Usuarios
@@ -191,8 +190,7 @@ Implementación del dashboard de usuario con gestión de perfil y contactos.
 - `i18n.js` - Sistema de traducciones
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_6-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_6/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_6-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1h3pcOMqv2crFC6WtW0MqGpBwOUpc_lJb/view)
 ---
 
 ## Capítulo 7: Testing usando Vitest
@@ -216,9 +214,52 @@ Implementación de pruebas automatizadas para garantizar la calidad del código.
 - `tests/api/users/` - Pruebas de endpoints de usuarios
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_7-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_7/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_7-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1ZpAc6rTvYDtspJ2K7KzrqjDR_ePoguqB/view)
 ---
+
+## Capítulo 8: Configuración API Cloudinary
+
+[Ver documentación completa →](Capitulo8_Configuracion_API_Cloudinary.md)
+
+### 📖 Contenido
+Implementación de Cloudinary para la gestión de archivos multimedia en el proyecto.
+
+### 🎯 Objetivos
+- Configurar Cloudinary para almacenamiento de archivos
+- Implementar funciones para subir y eliminar imágenes
+- Validar imágenes codificadas en base64
+- Integrar Cloudinary con perfiles de usuario
+- Crear pruebas para las funciones de Cloudinary
+
+### 🛠️ Tecnologías
+- Cloudinary - Almacenamiento en la nube
+- Base64 encoding - Para imágenes
+- Transformaciones automáticas - Redimensión y optimización
+
+### 📁 Archivos principales
+- `src/libs/cloudinary.ts` - Configuración y funciones de Cloudinary
+- `src/libs/validations/user.ts` - Validación de imágenes
+- `src/app/api/users/[id]/route.ts` - Integración con API de usuarios
+- `tests/libs/cloudinary.test.ts` - Pruebas unitarias
+
+### ⚙️ Funcionalidades
+- **uploadImage**: Subir imagen codificada con transformaciones automáticas
+- **deleteImage**: Eliminar imagen usando public_id
+- **extractPublicId**: Extraer public_id de URL de Cloudinary
+- **uploadPDF**: Subir archivos PDF como recursos raw
+- **deletePDF**: Eliminar archivos PDF
+
+### 🧪 Pruebas
+- Subida exitosa de imágenes
+- Eliminación de imágenes
+- Extracción de public_id
+- Manejo de errores
+- URLs mal formadas
+
+### 🎥 Video Tutorial
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_8-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1MwWlUK_pl6q0oXbP_nZHsaJsYGOUQA-9/view)
+---
+
 
 ## Capítulo 9: Backend de Facturas
 
@@ -247,8 +288,7 @@ Implementación completa del sistema de gestión de facturas con almacenamiento 
 - `CANCELED` - Cancelada
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_9-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_9/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_9-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1yLY1gJ5-hidYi6tph8oSwSJVF0UphdNo/view)
 ---
 
 ## Capítulo 10: Frontend de Facturas
@@ -274,8 +314,7 @@ Desarrollo de la interfaz de usuario para gestión de facturas con tema claro/os
 - `notifications.js` - Sistema de toasts
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_1-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1Gta6OvnkbvvTZbDcP0y0aZWiM9LYR-Ks/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_10-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/151mDDEO7EZVTxDuPrB5VJaKwplLPzhFu/view)
 ---
 
 ## Capítulo 11: Backend de Pagos y Stripe Básico
@@ -305,8 +344,7 @@ Integración con Stripe para procesar pagos de facturas de forma segura.
 - Validación de webhooks
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_11-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_11/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_11-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1ve8-hBIT_dlMfSAkqUxUfR04qXxBN4FC/view)
 ---
 
 ## Capítulo 12: Conexión con PayPal
@@ -337,8 +375,7 @@ Implementación del flujo completo de pagos con distribución de fondos vía Pay
 - Tolerancia a fallos y reintentos
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_12-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_12/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_12-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1gRXScOlgj24rNUSBcQ3MHsJkxaLG4OFi/view)
 ---
 
 ## Capítulo 13: Módulos de Front para Pagos
@@ -365,8 +402,7 @@ Desarrollo de la clase PaymentManager para gestionar pagos desde el frontend.
 - `getPaymentById()` - Obtener detalle de pago
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_13-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_13/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_13-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1qky9tmaBxlbVod3NX29vL4LKCKkYpOmf/view)
 ---
 
 ## Capítulo 14: Frontend de Pagos
@@ -398,8 +434,7 @@ Integración completa del sistema de pagos en la interfaz de usuario.
 - Estados visuales de pago
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_14-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_14/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_14-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1EwVtZDg7ltEgO4Tw2Q83U4XuEqvJwJJT/view)
 ---
 
 ## Capítulo 15: Backend de Notificaciones
@@ -437,8 +472,7 @@ Sistema completo de notificaciones in-app y por email.
 - Limpieza de notificaciones antiguas
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_15-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_15/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_15-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/14llUQ7yHvnbKTSxrDJlThQ12WHn2_0FK/view)
 ---
 
 ## Capítulo 16: Notificaciones en Frontend
@@ -473,8 +507,7 @@ Implementación del sistema de notificaciones en la interfaz de usuario.
 - Sistema de eventos global
 
 ### 🎥 Video Tutorial
-[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_16-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/TU_VIDEO_ID_CAPITULO_16/view)
-
+[![Ver Video](https://img.shields.io/badge/▶️_Ver_Video-Tutorial_Capítulo_16-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1wc_ONUymg6GEmPO-fZ-ECPmVvMNvpKsp/view)
 ---
 
 ## 🚀 Tecnologías Utilizadas
