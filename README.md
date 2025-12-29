@@ -47,7 +47,7 @@ Esta guía te llevará paso a paso desde la instalación inicial hasta la implem
 
 ## Capítulo 1: Instalación y Configuración
 
-[Ver documentación completa →](Mds/Capitulo1_Instalacion.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo1_Instalacion.md)
 
 ### 📖 Contenido
 En este capítulo inicial aprenderás a configurar tu entorno de desarrollo en Windows y Linux.
@@ -219,7 +219,7 @@ Implementación de pruebas automatizadas para garantizar la calidad del código.
 
 ## Capítulo 8: Configuración API Cloudinary
 
-[Ver documentación completa →](Capitulo8_Configuracion_API_Cloudinary.md)
+[Ver documentación completa →](Tutoriales_completos/Capitulo8_Configuracion_API_Cloudinary.md)
 
 ### 📖 Contenido
 Implementación de Cloudinary para la gestión de archivos multimedia en el proyecto.
